@@ -45,18 +45,18 @@ packages:
     dependency: "direct main"
     description:
       name: auto_route
-      sha256: "12047baeca0e01df93165ef33275b32119d72699ab9a49dc64c20e78f586f96d"
+      sha256: "607dba9d998b279447b065e0b63e9b5f1993cfd928ceb493236c50b6e0f1a779"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.4"
+    version: "6.0.0-rc-7"
   auto_route_generator:
     dependency: "direct dev"
     description:
       name: auto_route_generator
-      sha256: de5bfbc02ae4eebb339dd90d325749ae7536e903f6513ef72b88954072d72b0e
+      sha256: a93fe9c6c6ed9404153801f4883e277001c43466dfbe16f0ab227559fe56bfe5
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.3"
+    version: "6.0.0-rc-1"
   boolean_selector:
     dependency: transitive
     description:
@@ -98,7 +98,7 @@ packages:
     source: hosted
     version: "2.2.0"
   build_runner:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: build_runner
       sha256: b0a8a7b8a76c493e85f1b84bffa0588859a06197863dba8c9036b15581fd9727
@@ -238,6 +238,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_form_builder:
+    dependency: "direct main"
+    description:
+      name: flutter_form_builder
+      sha256: "9551c7379adc01a3a3a1100057396407c9534ea8adc937d14a0edd96fcd9e1dc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.8.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -368,6 +376,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  mockito:
+    dependency: transitive
+    description:
+      name: mockito
+      sha256: "2a8a17b82b1bde04d514e75d90d634a0ac23f6cb4991f6098009dd56836aeafe"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.3.2"
   mocktail:
     dependency: "direct dev"
     description:
@@ -693,5 +709,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0 <3.0.0"
-  flutter: ">=3.0.0"
+  dart: ">2.19.0 <3.0.0"
+  flutter: ">=3.7.0"
