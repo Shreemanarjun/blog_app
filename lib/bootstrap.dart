@@ -15,7 +15,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     () async => runApp(
       ProviderScope(
         observers: [
-          if (kDebugMode) MyProviderObserver(talker:talker),
+          if (kDebugMode) MyProviderObserver(talker: talker),
         ],
         child: await builder(),
       ),
