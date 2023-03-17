@@ -23,9 +23,10 @@ Method | HTTP request | Description
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure HTTP basic authorization: auth-jwt
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: authJWT
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKeyPrefix = 'Bearer';
 
 final api = Openapi().getBlogsApi();
 
@@ -46,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth-jwt](../README.md#auth-jwt)
+[authJWT](../README.md#authJWT)
 
 ### HTTP request headers
 
@@ -63,9 +64,10 @@ This endpoint does not need any parameter.
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure HTTP basic authorization: auth-jwt
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: authJWT
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKeyPrefix = 'Bearer';
 
 final api = Openapi().getBlogsApi();
 final int id = 56; // int | id of the blog
@@ -90,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth-jwt](../README.md#auth-jwt)
+[authJWT](../README.md#authJWT)
 
 ### HTTP request headers
 
@@ -107,9 +109,10 @@ Name | Type | Description  | Notes
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure HTTP basic authorization: auth-jwt
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: authJWT
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKeyPrefix = 'Bearer';
 
 final api = Openapi().getBlogsApi();
 final BlogUpdateRequest blogUpdateRequest = ; // BlogUpdateRequest | Blog update request
@@ -134,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth-jwt](../README.md#auth-jwt)
+[authJWT](../README.md#authJWT)
 
 ### HTTP request headers
 
@@ -151,9 +154,10 @@ Name | Type | Description  | Notes
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure HTTP basic authorization: auth-jwt
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('auth-jwt').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: authJWT
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKeyPrefix = 'Bearer';
 
 final api = Openapi().getBlogsApi();
 final BlogRequest blogRequest = ; // BlogRequest | Blog Create Request
@@ -178,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth-jwt](../README.md#auth-jwt)
+[authJWT](../README.md#authJWT)
 
 ### HTTP request headers
 

@@ -100,9 +100,11 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-## auth-jwt
+## authJWT
 
-- **Type**: HTTP basic authentication
+- **Type**: API key
+- **API key parameter name**: authJWT
+- **Location**: 
 
 
 ## Author

@@ -49,9 +49,11 @@ class BlogsApi {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'http',
+            'type': 'apiKey',
             'scheme': 'Bearer',
-            'name': 'auth-jwt',
+            'name': 'authJWT',
+            'keyName': 'authJWT',
+            'where': '',
           },
         ],
         ...?extra,
@@ -129,9 +131,11 @@ class BlogsApi {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'http',
+            'type': 'apiKey',
             'scheme': 'Bearer',
-            'name': 'auth-jwt',
+            'name': 'authJWT',
+            'keyName': 'authJWT',
+            'where': '',
           },
         ],
         ...?extra,
@@ -209,9 +213,11 @@ class BlogsApi {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'http',
+            'type': 'apiKey',
             'scheme': 'Bearer',
-            'name': 'auth-jwt',
+            'name': 'authJWT',
+            'keyName': 'authJWT',
+            'where': '',
           },
         ],
         ...?extra,
@@ -308,9 +314,11 @@ class BlogsApi {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'http',
+            'type': 'apiKey',
             'scheme': 'Bearer',
-            'name': 'auth-jwt',
+            'name': 'authJWT',
+            'keyName': 'authJWT',
+            'where': '',
           },
         ],
         ...?extra,

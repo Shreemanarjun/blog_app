@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 analysis_options.yaml
 doc/AuthApi.md
@@ -48,20 +47,3 @@ lib/src/model/users.dart
 lib/src/model/users_users_inner.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/auth_api_test.dart
-test/blog_request_test.dart
-test/blog_update_request_test.dart
-test/blogs_api_test.dart
-test/blogs_blogs_inner_test.dart
-test/blogs_test.dart
-test/default_api_test.dart
-test/error_message_test.dart
-test/my_token_test.dart
-test/success_message_test.dart
-test/tokens_test.dart
-test/tokens_tokens_inner_test.dart
-test/user_api_test.dart
-test/user_login_request_test.dart
-test/user_sign_up_request_test.dart
-test/users_test.dart
-test/users_users_inner_test.dart
