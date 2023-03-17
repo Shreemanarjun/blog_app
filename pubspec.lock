@@ -408,6 +408,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
+  platform_info:
+    dependency: "direct main"
+    description:
+      name: platform_info
+      sha256: "012e73712166cf0b56d3eb95c0d33491f56b428c169eca385f036448474147e4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.0"
   pool:
     dependency: transitive
     description:
@@ -553,10 +561,10 @@ packages:
     dependency: "direct main"
     description:
       name: talker
-      sha256: "0c8bdf1f12ee34dedee5334a5aecf89bdb4cb811e5b317112526426b3f72fe08"
+      sha256: e1149d5e38043cbbf3120935be50d3ecb01f9ed82f6fe117e4975b3780209f69
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.5"
+    version: "2.4.0"
   talker_logger:
     dependency: transitive
     description:
