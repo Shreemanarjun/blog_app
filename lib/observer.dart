@@ -1,9 +1,12 @@
-// ignore_for_file: strict_raw_type, cast_nullable_to_non_nullable, noop_primitive_operations, lines_longer_than_80_chars
+// ignore_for_file: noop_primitive_operations, strict_raw_type, cast_nullable_to_non_nullable, lines_longer_than_80_chars
 
-import 'package:blog_app/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:talker/talker.dart';
 
 class MyProviderObserver extends ProviderObserver {
+  MyProviderObserver({required this.talker}) : super();
+  final Talker talker;
+
   @override
   void didUpdateProvider(
     ProviderBase provider,
@@ -14,19 +17,27 @@ class MyProviderObserver extends ProviderObserver {
     if (newValue is StateController) {
       final newv = newValue.state;
       final perviousv = (previousValue as StateController).state;
-      talker.debug('Provider is: '
+      talker.log('Provider is: '
           '${provider.name ?? provider.runtimeType} \n'
           'previous value: $perviousv \n'
           'new value: $newv');
-    } else if (newValue is AsyncValue) {
-      final newv = newValue.value;
-      final perviousv = (previousValue as AsyncValue).value;
-      talker.debug('Provider is: '
-          '${provider.name ?? provider.runtimeType} \n'
-          'previous value: $perviousv \n'
-          'new value: $newv');
+    } else if ((newValue is AsyncValue?) && (previousValue is AsyncValue?)) {
+      final previousAsyncValue = previousValue;
+      if (previousAsyncValue != null) {
+        final newv = newValue?.value;
+        final previousv = previousAsyncValue.value;
+        talker.log('Provider is: '
+            '${provider.name ?? provider.runtimeType} \n'
+            'previous value: $previousv \n'
+            'new value: $newv');
+      } else {
+        talker.log('Provider is: '
+            '${provider.name ?? provider.runtimeType} \n'
+            'previous value: null \n'
+            'new value: ${newValue?.value}');
+      }
     } else {
-      talker.debug('Provider is: '
+      talker.log('Provider is: '
           '${provider.name ?? provider.runtimeType} \n'
           'previous value: ${previousValue.toString()}\n'
           'new value: ${newValue.toString()}');
