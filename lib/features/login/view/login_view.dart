@@ -35,6 +35,9 @@ class _LoginViewState extends State<LoginView> {
           xlarge: LoginWebView(
             formkey: _formKey,
           ),
+          medium: LoginWebView(
+            formkey: _formKey,
+          ),
           fallback: LoginMobileView(formKey: _formKey),
         ),
       ),
