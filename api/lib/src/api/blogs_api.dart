@@ -12,7 +12,6 @@ import 'package:openapi/src/model/blog_update_request.dart';
 import 'package:openapi/src/model/blogs.dart';
 
 class BlogsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,7 +19,7 @@ class BlogsApi {
   const BlogsApi(this._dio, this._serializers);
 
   /// blogGet
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -32,7 +31,7 @@ class BlogsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Blogs>> blogGet({ 
+  Future<Response<Blogs>> blogGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -77,14 +76,14 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
-
     } catch (error, stackTrace) {
       throw DioError(
+        stackTrace: stackTrace,
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     return Response<Blogs>(
@@ -100,7 +99,7 @@ class BlogsApi {
   }
 
   /// blogIdDelete
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - id of the blog
@@ -113,7 +112,7 @@ class BlogsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Blogs>> blogIdDelete({ 
+  Future<Response<Blogs>> blogIdDelete({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -159,14 +158,14 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
-
     } catch (error, stackTrace) {
       throw DioError(
+        stackTrace: stackTrace,
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     return Response<Blogs>(
@@ -182,7 +181,7 @@ class BlogsApi {
   }
 
   /// blogPatch
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [blogUpdateRequest] - Blog update request
@@ -195,7 +194,7 @@ class BlogsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Blogs>> blogPatch({ 
+  Future<Response<Blogs>> blogPatch({
     required BlogUpdateRequest blogUpdateRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -230,17 +229,18 @@ class BlogsApi {
 
     try {
       const _type = FullType(BlogUpdateRequest);
-      _bodyData = _serializers.serialize(blogUpdateRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(blogUpdateRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.other,
+        stackTrace: stackTrace,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -260,14 +260,14 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
+        stackTrace: stackTrace,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     return Response<Blogs>(
@@ -283,7 +283,7 @@ class BlogsApi {
   }
 
   /// blogPost
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [blogRequest] - Blog Create Request
@@ -296,7 +296,7 @@ class BlogsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Blogs>> blogPost({ 
+  Future<Response<Blogs>> blogPost({
     required BlogRequest blogRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -332,16 +332,16 @@ class BlogsApi {
     try {
       const _type = FullType(BlogRequest);
       _bodyData = _serializers.serialize(blogRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        stackTrace: stackTrace,
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -361,14 +361,14 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
-
     } catch (error, stackTrace) {
       throw DioError(
+        stackTrace: stackTrace,
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     return Response<Blogs>(
@@ -382,5 +382,4 @@ class BlogsApi {
       extra: _response.extra,
     );
   }
-
 }

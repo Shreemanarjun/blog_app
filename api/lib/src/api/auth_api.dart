@@ -13,7 +13,6 @@ import 'package:openapi/src/model/user_login_request.dart';
 import 'package:openapi/src/model/user_sign_up_request.dart';
 
 class AuthApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -34,7 +33,7 @@ class AuthApi {
   ///
   /// Returns a [Future] containing a [Response] with a [MyToken] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MyToken>> loginPost({ 
+  Future<Response<MyToken>> loginPost({
     required UserLoginRequest userLoginRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -61,17 +60,18 @@ class AuthApi {
 
     try {
       const _type = FullType(UserLoginRequest);
-      _bodyData = _serializers.serialize(userLoginRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(userLoginRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        stackTrace: stackTrace,
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -91,14 +91,14 @@ class AuthApi {
         _response.data!,
         specifiedType: _responseType,
       ) as MyToken;
-
     } catch (error, stackTrace) {
       throw DioError(
+        stackTrace: stackTrace,
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     return Response<MyToken>(
@@ -127,7 +127,7 @@ class AuthApi {
   ///
   /// Returns a [Future] containing a [Response] with a [SuccessMessage] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<SuccessMessage>> signupPost({ 
+  Future<Response<SuccessMessage>> signupPost({
     required UserSignUpRequest userSignUpRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -154,17 +154,18 @@ class AuthApi {
 
     try {
       const _type = FullType(UserSignUpRequest);
-      _bodyData = _serializers.serialize(userSignUpRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(userSignUpRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        stackTrace: stackTrace,
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -184,14 +185,14 @@ class AuthApi {
         _response.data!,
         specifiedType: _responseType,
       ) as SuccessMessage;
-
     } catch (error, stackTrace) {
       throw DioError(
+        stackTrace: stackTrace,
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     return Response<SuccessMessage>(
@@ -205,5 +206,4 @@ class AuthApi {
       extra: _response.extra,
     );
   }
-
 }

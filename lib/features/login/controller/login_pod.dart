@@ -5,3 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final loginPod = AsyncNotifierProvider.autoDispose<LoginNotifier, LoginState>(
   LoginNotifier.new,
 );
+
+final enableLoginForm = StateProvider.autoDispose<bool>((ref) {
+  return !ref.watch(loginPod).isLoading;
+});

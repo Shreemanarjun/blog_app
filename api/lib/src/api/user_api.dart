@@ -184,11 +184,12 @@ class UserApi {
 
     } catch (error, stackTrace) {
       throw DioError(
+        stackTrace: stackTrace,
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+      );
     }
 
     return Response<MyToken>(
