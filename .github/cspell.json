@@ -21,7 +21,6 @@
     "mostrado",
     "página",
     "Texto"
-  ],"ignorePaths": [
-    "api/**"
-  ]
+  ],
+  "ignorePaths": ["**/api","*/api","/api","api"]
 }
