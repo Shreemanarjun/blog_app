@@ -5,7 +5,6 @@ abstract class LoginState {}
 
 class IntialLoginState extends LoginState {}
 
-class LoggingInState extends LoginState {}
 
 class LoggedInState extends LoginState {}
 
@@ -31,15 +30,11 @@ class LoginErrorState extends LoginState {
 extension LoginStateUnion on LoginState {
   T map<T>({
     required T Function(IntialLoginState) intialLoginState,
-    required T Function(LoggingInState) loggingInState,
     required T Function(LoggedInState) loggedInState,
     required T Function(LoginErrorState) loginErrorState,
   }) {
     if (this is IntialLoginState) {
       return intialLoginState(this as IntialLoginState);
-    }
-    if (this is LoggingInState) {
-      return loggingInState(this as LoggingInState);
     }
     if (this is LoggedInState) {
       return loggedInState(this as LoggedInState);

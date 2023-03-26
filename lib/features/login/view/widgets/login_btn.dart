@@ -42,18 +42,6 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
           onPressed: ref.watch(enableLoginForm) ? login : null,
           child: 'Login'.text.make(),
         ),
-        loggingInState: (p0) => ElevatedButton(
-          onPressed: null,
-          child: [
-            const CircularProgressIndicator()
-                .px8()
-                .box
-                .height(24)
-                .width(40)
-                .make(),
-            'Logging you in'.text.make(),
-          ].hStack(),
-        ),
         loggedInState: (p0) => ElevatedButton(
           onPressed: ref.watch(enableLoginForm) ? login : null,
           child: 'Loggedin'.text.make(),
@@ -66,7 +54,7 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
                 onPressed: ref.watch(enableLoginForm) ? login : null,
                 child: 'Retry Login'.text.make(),
               ),
-              s.error.easyError(),
+              s.error.easyError().p8(),
             ],
           );
         },
@@ -78,10 +66,21 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
             onPressed: ref.watch(enableLoginForm) ? login : null,
             child: 'Retry Login'.text.make(),
           ),
-          error.easyError(),
+          error.easyError().p8(),
         ],
       ),
-      loading: () => const LinearProgressIndicator(),
+      loading: () => ElevatedButton(
+        onPressed: null,
+        child: [
+          const CircularProgressIndicator()
+              .px8()
+              .box
+              .height(24)
+              .width(40)
+              .make(),
+          'Logging you in'.text.make(),
+        ].hStack(),
+      ),
     );
   }
 }

@@ -27,7 +27,6 @@ class LoginNotifier extends AutoDisposeAsyncNotifier<LoginState> {
           ..password = password;
         return s;
       });
-      state = AsyncData(LoggingInState());
 
       try {
         final result = await ref
