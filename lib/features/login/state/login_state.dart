@@ -5,7 +5,6 @@ abstract class LoginState {}
 
 class IntialLoginState extends LoginState {}
 
-
 class LoggedInState extends LoginState {}
 
 class LoginErrorState extends LoginState {
