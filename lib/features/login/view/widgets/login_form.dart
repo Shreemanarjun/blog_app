@@ -27,7 +27,7 @@ class LoginForm extends StatelessWidget {
               VxResponsive(
                 fallback: const LoginTitleText().centered(),
                 large: const LoginTitleText().centered(),
-              ).p8(),
+              ).py8(),
               FormBuilderTextField(
                 name: 'username',
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -66,7 +66,7 @@ class LoginForm extends StatelessWidget {
               ).py8(),
               LoginButtonView(
                 formKey: formkey,
-              ).p8()
+              )
             ],
           ),
         );

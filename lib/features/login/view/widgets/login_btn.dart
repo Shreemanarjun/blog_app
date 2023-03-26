@@ -40,7 +40,7 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
       data: (loginState) => loginState.map(
         intialLoginState: (p0) => ElevatedButton(
           onPressed: ref.watch(enableLoginForm) ? login : null,
-          child: const Text('Login'),
+          child: 'Login'.text.make(),
         ),
         loggingInState: (p0) => ElevatedButton(
           onPressed: null,
@@ -49,21 +49,22 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
                 .px8()
                 .box
                 .height(24)
-                .width(32)
+                .width(40)
                 .make(),
-            const Text('Logging in'),
+            'Logging you in'.text.make(),
           ].hStack(),
         ),
         loggedInState: (p0) => ElevatedButton(
           onPressed: ref.watch(enableLoginForm) ? login : null,
-          child: const Text('Loggedin'),
+          child: 'Loggedin'.text.make(),
         ),
         loginErrorState: (s) {
           return Column(
             children: [
               ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 onPressed: ref.watch(enableLoginForm) ? login : null,
-                child: const Text('Retry Login'),
+                child: 'Retry Login'.text.make(),
               ),
               s.error.easyError(),
             ],
@@ -73,8 +74,9 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
       error: (error, stackTrace) => Column(
         children: [
           ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             onPressed: ref.watch(enableLoginForm) ? login : null,
-            child: const Text('Retry Login'),
+            child: 'Retry Login'.text.make(),
           ),
           error.easyError(),
         ],
