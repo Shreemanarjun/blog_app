@@ -49,7 +49,7 @@ class _LoggedInViewState extends ConsumerState<LoggedInView> {
           .xl
           .makeCentered()
           .flexible(),
-      const CircularProgressIndicator().p8(),
+      const CircularProgressIndicator.adaptive().p8(),
     ].vStack().scrollVertical().centered();
   }
 }

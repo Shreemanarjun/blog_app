@@ -1,15 +1,7 @@
+import 'package:blog_app/data/service/token/token_service_pod.dart';
 import 'package:blog_app/router/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final autoRouterPod = Provider.autoDispose<AppRouter>((ref) {
-  return AppRouter();
-});
-
-final isGuardCheckingPod = Provider.autoDispose<bool>((ref) {
-  var isLoading = false;
-  final autorouter = ref.watch(autoRouterPod);
-  autorouter.activeGuardObserver.addListener(() {
-    isLoading = autorouter.activeGuardObserver.guardInProgress;
-  });
-  return isLoading;
+  return AppRouter(tokenService: ref.watch(tokenServicePod));
 });

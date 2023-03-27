@@ -72,7 +72,7 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
       loading: () => ElevatedButton(
         onPressed: null,
         child: [
-          const CircularProgressIndicator()
+          const CircularProgressIndicator.adaptive()
               .px8()
               .box
               .height(24)

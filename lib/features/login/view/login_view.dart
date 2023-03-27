@@ -35,6 +35,7 @@ class _LoginViewState extends State<LoginView> {
         child: Consumer(
           builder: (context, ref, child) {
             final isloggedin = ref.watch(isLoggedInPod);
+
             return isloggedin
                 ? const LoggedInView()
                 : VxResponsive(
