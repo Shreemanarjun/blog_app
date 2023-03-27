@@ -16,5 +16,8 @@ final isLoggedInPod = Provider.autoDispose<bool>((ref) {
 });
 
 final showPasswordPod = StateProvider.autoDispose<bool>((ref) {
+  if (ref.watch(loginPod).isLoading) {
+    return false;
+  }
   return true;
 });
