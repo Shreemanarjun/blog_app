@@ -16,8 +16,11 @@ class LoginWebView extends StatelessWidget {
   Widget build(BuildContext context) {
     return <Widget>[
       [
-        const AppTitleHeader().flexible(),
-        const NoteAnimation().flexible(),
+        const AppTitleHeader().hero('title').flexible(),
+        const Hero(
+          tag: 'note',
+          child: NoteAnimation(),
+        ).flexible(),
       ].vStack().expand(),
       LoginForm(
         formkey: formkey,

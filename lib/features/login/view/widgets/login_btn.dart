@@ -43,7 +43,7 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
           child: 'Login'.text.make(),
         ),
         loggedInState: (p0) => ElevatedButton(
-          onPressed: ref.watch(enableLoginForm) ? login : null,
+          onPressed: null,
           child: 'Loggedin'.text.make(),
         ),
         loginErrorState: (s) {

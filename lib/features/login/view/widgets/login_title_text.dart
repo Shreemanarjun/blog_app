@@ -9,6 +9,7 @@ class LoginTitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return 'Login'
         .text
+        .headline1(context)
         .xl2
         .bold
         .textStyle(

@@ -18,8 +18,11 @@ class LoginMobileView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: <Widget>[
-        const AppTitleHeader().flexible(),
-        const NoteAnimation().flexible(),
+        const AppTitleHeader().hero('title').flexible(),
+        const Hero(
+          tag: 'note',
+          child: NoteAnimation(),
+        ).flexible(),
         LoginForm(
           formkey: _formKey,
         ).p8().card.elevation(8).make().flexible(flex: 3),

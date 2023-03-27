@@ -9,3 +9,12 @@ final loginPod = AsyncNotifierProvider.autoDispose<LoginNotifier, LoginState>(
 final enableLoginForm = StateProvider.autoDispose<bool>((ref) {
   return !ref.watch(loginPod).isLoading;
 });
+
+final isLoggedInPod = Provider.autoDispose<bool>((ref) {
+  final loggedin = ref.watch(loginPod).value is LoggedInState;
+  return loggedin;
+});
+
+final showPasswordPod = StateProvider.autoDispose<bool>((ref) {
+  return true;
+});
