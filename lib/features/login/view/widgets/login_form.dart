@@ -22,7 +22,8 @@ class LoginForm extends StatelessWidget {
       builder: (context, ref, child) {
         return FormBuilder(
           key: formkey,
-          enabled: ref.watch(enableLoginForm),
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          enabled: ref.watch(enableLoginFormPod),
           initialValue: kDebugMode
               ? {
                   'username': 'Arjun',
@@ -36,7 +37,7 @@ class LoginForm extends StatelessWidget {
                 fallback: const LoginTitleText().centered(),
                 large: const LoginTitleText().centered(),
               ).py8(),
-              const LoginFormField(),
+              const LoginFormField().py8(),
               const PasswordFormField().py8(),
               LoginButtonView(
                 formKey: formkey,

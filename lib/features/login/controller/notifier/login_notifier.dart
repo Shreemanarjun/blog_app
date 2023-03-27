@@ -4,7 +4,6 @@ import 'dart:async';
 
 import 'package:blog_app/data/service/token/token_service_pod.dart';
 import 'package:blog_app/features/login/state/login_state.dart';
-import 'package:blog_app/logger.dart';
 import 'package:blog_app/shared/dio/dio_client.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,9 +33,8 @@ class LoginNotifier extends AutoDisposeAsyncNotifier<LoginState> {
             .watch(openapiPod)
             .getAuthApi()
             .loginPost(userLoginRequest: userloginRequest);
-        talker.debug(result.data);
+
         final mytoken = result.data;
-        talker.log(mytoken);
 
         await ref
             .read(tokenServicePod)

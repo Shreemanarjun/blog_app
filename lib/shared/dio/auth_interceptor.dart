@@ -11,9 +11,12 @@ class TokenAuthInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    options.headers.addAll(
-      {'Authorization': 'Bearer ${await tokenService.getToken()}'},
-    );
+    final token = await tokenService.getToken();
+    if (token != null) {
+      options.headers.addAll(
+        {'Authorization': 'Bearer ${await tokenService.getToken()}'},
+      );
+    }
     super.onRequest(options, handler);
   }
 }

@@ -23,6 +23,12 @@ class HomeView extends StatelessWidget {
           LogoutButton(),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(
+          Icons.add,
+        ),
+      ),
       body: SafeArea(
         child: Consumer(
           builder: (context, ref, child) {

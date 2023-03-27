@@ -39,7 +39,7 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
     return loginStateAsync.when(
       data: (loginState) => loginState.map(
         intialLoginState: (p0) => ElevatedButton(
-          onPressed: ref.watch(enableLoginForm) ? login : null,
+          onPressed: ref.watch(enableLoginFormPod) ? login : null,
           child: 'Login'.text.make(),
         ),
         loggedInState: (p0) => ElevatedButton(
@@ -51,7 +51,7 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                onPressed: ref.watch(enableLoginForm) ? login : null,
+                onPressed: ref.watch(enableLoginFormPod) ? login : null,
                 child: 'Retry Login'.text.make(),
               ),
               s.error.easyError().p8(),
@@ -63,7 +63,7 @@ class _LoginButtonViewState extends ConsumerState<LoginButtonView> {
         children: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            onPressed: ref.watch(enableLoginForm) ? login : null,
+            onPressed: ref.watch(enableLoginFormPod) ? login : null,
             child: 'Retry Login'.text.make(),
           ),
           error.easyError().p8(),
