@@ -126,6 +126,6 @@ class ErrorTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return error.toString().text.sm.make().py4().flexible();
+    return error.toString().text.bold.sm.make().p4().flexible();
   }
 }

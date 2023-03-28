@@ -3,6 +3,7 @@ import 'package:blog_app/features/home/controller/blog_list_pod.dart';
 import 'package:blog_app/features/home/view/widget/logout_btn.dart';
 import 'package:blog_app/features/login/view/widgets/title_header.dart';
 import 'package:blog_app/shared/riverpod_extension/asyncvalue_easy_when.dart';
+import 'package:blog_app/shared/widget/app_locale_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -19,8 +20,10 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const AppTitleHeader(),
+        centerTitle: true,
         actions: const [
           LogoutButton(),
+          AppLocalePopUp(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -44,6 +47,9 @@ class HomeView extends StatelessWidget {
                     );
                   },
                 );
+              },
+              onRetry: () {
+                ref.invalidate(blogListPod);
               },
             );
           },
