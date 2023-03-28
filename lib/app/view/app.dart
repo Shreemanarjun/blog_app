@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blog_app/l10n/l10n.dart';
 import 'package:blog_app/router/router_pod.dart';
+import 'package:blog_app/shared/pod/locale_pod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -27,6 +28,7 @@ class App extends ConsumerWidget {
       ),
       routerConfig: approuter.config(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
+      locale: ref.watch(localePod),
       supportedLocales: AppLocalizations.supportedLocales,
     );
   }

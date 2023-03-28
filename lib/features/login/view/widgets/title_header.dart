@@ -1,3 +1,4 @@
+import 'package:blog_app/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_language_fonts/google_language_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -7,7 +8,8 @@ class AppTitleHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 'Bloggy'
+    return AppLocalizations.of(context)
+        .appTitle
         .text
         .xl4
         .textStyle(
