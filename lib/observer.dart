@@ -22,10 +22,9 @@ class MyProviderObserver extends ProviderObserver {
           'previous value: $perviousv \n'
           'new value: $newv');
     } else if ((newValue is AsyncValue?) && (previousValue is AsyncValue?)) {
-      final previousAsyncValue = previousValue;
-      if (previousAsyncValue != null) {
-        final newv = newValue?.value;
-        final previousv = previousAsyncValue.value;
+      if (previousValue != null) {
+        final newv = newValue?.valueOrNull;
+        final previousv = previousValue.valueOrNull;
         talker.log('Provider is: '
             '${provider.name ?? provider.runtimeType} \n'
             'previous value: $previousv \n'
