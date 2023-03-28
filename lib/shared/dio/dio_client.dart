@@ -39,7 +39,6 @@ final openapiPod = Provider.autoDispose<Openapi>((ref) {
             await ref.read(tokenServicePod).deleteToken();
             await ref.read(autoRouterPod).replaceAll([const LoginRouter()]);
           }
-
           handler.next(e);
         },
       ),

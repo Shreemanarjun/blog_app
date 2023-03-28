@@ -1,4 +1,3 @@
-
 import 'package:blog_app/l10n/l10n.dart';
 import 'package:blog_app/shared/pod/locale_pod.dart';
 import 'package:flutter/material.dart';
