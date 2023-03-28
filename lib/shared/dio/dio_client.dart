@@ -1,5 +1,9 @@
 import 'package:blog_app/data/service/token/token_service_pod.dart';
+import 'package:blog_app/logger.dart';
+import 'package:blog_app/router/router.gr.dart';
+import 'package:blog_app/router/router_pod.dart';
 import 'package:blog_app/shared/dio/auth_interceptor.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:openapi/openapi.dart';
@@ -26,6 +30,18 @@ final openapiPod = Provider.autoDispose<Openapi>((ref) {
             ),
           ),
         ),
+      ),
+      InterceptorsWrapper(
+        onError: (e, handler) async {
+          talker.debug(e.response?.statusCode);
+          if (e.response!.statusCode == 401) {
+            talker.debug('deleting token and moving to login page');
+            await ref.read(tokenServicePod).deleteToken();
+            await ref.read(autoRouterPod).replaceAll([const LoginRouter()]);
+          }
+
+          handler.next(e);
+        },
       ),
     ],
   );
