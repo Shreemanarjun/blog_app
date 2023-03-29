@@ -11,6 +11,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hydrated_state_notifier/hydrated_state_notifier.dart';
+import 'package:hydrated_state_notifier_hive/hydrated_state_notifier_hive.dart';
+import 'package:path_provider/path_provider.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   FlutterError.onError = (details) {
@@ -18,6 +21,9 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   };
   await Hive.initFlutter();
   final tokenbox = await Hive.openBox('tokens');
+  HydratedStorage.storage = await HiveHydratedStorage.build(
+    storageDirectoryPath: kIsWeb ? '' : (await getTemporaryDirectory()).path,
+  );
   await runZonedGuarded(
     () async => runApp(
       ProviderScope(

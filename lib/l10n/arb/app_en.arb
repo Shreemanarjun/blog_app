@@ -1,8 +1,14 @@
 {
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-     "appTitle":"Bloggy",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+  "@@locale": "en",
+  "appTitle": "Bloggy",
+  "appWelcomeMsg": "Welcome to bloggy app",
+  "changeLanguage": "Change Language",
+  "counterAppBarTitle": "Counter",
+  "loginBtnTxt": "Login",
+  "loginErrorText": "Login field is required.",
+  "loginTitle": "Login",
+  "passwordhint": "Enter Password",
+  "passwordlbl": "Password",
+  "usernamehint": "Enter Username",
+  "usernamelbl": "Username"
 }

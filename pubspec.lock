@@ -589,6 +589,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  hydrated_state_notifier:
+    dependency: "direct main"
+    description:
+      name: hydrated_state_notifier
+      sha256: c461dba9156d578d262144748789957be1cab7c90c4f4ee5c0152a89f5b0169a
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  hydrated_state_notifier_hive:
+    dependency: "direct main"
+    description:
+      name: hydrated_state_notifier_hive
+      sha256: e9c07e56bff15e60ac3cd11fa1dfedd78aa225a7dcfc6906ab6bf2fa9ea68766
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   intl:
     dependency: "direct main"
     description:
@@ -757,7 +773,7 @@ packages:
     source: hosted
     version: "1.0.1"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       sha256: c7edf82217d4b2952b2129a61d3ad60f1075b9299e629e149a8d2e39c2e6aad4

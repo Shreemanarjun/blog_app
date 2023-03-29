@@ -1,4 +1,5 @@
 import 'package:blog_app/features/login/controller/login_pod.dart';
+import 'package:blog_app/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,13 +13,14 @@ class PasswordFormField extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     return FormBuilderTextField(
       obscureText: ref.watch(showPasswordPod),
       name: 'password',
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
-        hintText: 'Enter Password',
-        labelText: 'Password',
+        hintText: l10n.passwordhint,
+        labelText: l10n.passwordlbl,
         border: const OutlineInputBorder(),
         prefixIcon: const Icon(
           Icons.lock,

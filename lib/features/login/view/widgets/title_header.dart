@@ -8,10 +8,7 @@ class AppTitleHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppLocalizations.of(context)
-        .appTitle
-        .text
-        .xl4
+    return context.l10n.appTitle.text.xl4
         .textStyle(
           GoogleFonts.getFont('Pacifico'),
         )

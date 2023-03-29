@@ -19,10 +19,13 @@ dependencies:
   form_builder_validators: ^8.5.0
   google_language_fonts: ^2.0.0
   hive_flutter: ^1.1.0
+  hydrated_state_notifier: ^1.0.0
+  hydrated_state_notifier_hive: ^1.0.0
   intl: ^0.17.0
   lottie: ^2.3.0
   openapi:
     path: api
+  path_provider: ^2.0.14
   platform_info: ^3.2.0
   talker: ^2.4.0
   talker_dio_logger: ^1.2.2

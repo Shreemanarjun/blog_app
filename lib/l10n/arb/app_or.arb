@@ -1,8 +1,14 @@
 {
-    "@@locale": "or",
-    "counterAppBarTitle": "କାଉଣ୍ଟର",
-    "appTitle":"ବ୍ଲଗ୍",
-    "@counterAppBarTitle": {
-        "description": "କାଉଣ୍ଟର ପେଜ୍ ର ଆପ୍ ବାର୍ ରେ ଦେଖାଯାଇଥିବା ପାଠ୍ୟ |"
-    }
+  "@@locale": "or",
+  "appTitle": "Bloggy",
+  "appWelcomeMsg": "ବ୍ଲଗ୍ ଆପ୍ କୁ ସ୍ୱାଗତ |",
+  "changeLanguage": "ଭାଷା ପରିବର୍ତ୍ତନ କରନ୍ତୁ ",
+  "counterAppBarTitle": "କାଉଣ୍ଟର",
+  "loginBtnTxt": "ପ୍ରବେଶ",
+  "loginErrorText": "ଲଗଇନ୍ କ୍ଷେତ୍ର ଆବଶ୍ୟକ ଅଟେ |",
+  "loginTitle": "ଲଗଇନ୍",
+  "passwordhint": "ପାସୱାର୍ଡ ପ୍ରବେଶ କର ",
+  "passwordlbl": "ପାସୱାର୍ଡ",
+  "usernamehint": "ଉପଯୋଗକର୍ତ୍ତା ନାମ ପ୍ରବେଶ କର ",
+  "usernamelbl": "ଉପଯୋଗକର୍ତ୍ତା ନାମ"
 }

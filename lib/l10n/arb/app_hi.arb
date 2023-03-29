@@ -1,0 +1,14 @@
+{
+  "@@locale": "hi",
+  "appTitle": "Bloggy",
+  "appWelcomeMsg": "Welcome to bloggy app",
+  "changeLanguage": "भाषा बदलें",
+  "counterAppBarTitle": "Counter",
+  "loginBtnTxt": "लॉग इन करें",
+  "loginErrorText": "लॉग इन स्थान भरा जाना है।",
+  "loginTitle": "लॉग इन करें",
+  "passwordhint": "पासवर्ड प्रवेश करना  ",
+  "passwordlbl": "पासवर्ड",
+  "usernamehint": "उपयोगकर्तानाम प्रवेश करना ",
+  "usernamelbl": "उपयोगकर्तानाम"
+}

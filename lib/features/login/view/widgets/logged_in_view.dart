@@ -1,6 +1,7 @@
 import 'package:blog_app/features/login/controller/login_pod.dart';
 import 'package:blog_app/features/login/view/widgets/note_animation.dart';
 import 'package:blog_app/features/login/view/widgets/title_header.dart';
+import 'package:blog_app/l10n/l10n.dart';
 import 'package:blog_app/router/router.gr.dart';
 import 'package:blog_app/router/router_pod.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class _LoggedInViewState extends ConsumerState<LoggedInView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     ref.listenManual(
       isLoggedInPod,
       (previous, next) {
@@ -40,9 +42,7 @@ class _LoggedInViewState extends ConsumerState<LoggedInView> {
         tag: 'note',
         child: NoteAnimation(),
       ).flexible(),
-      'Welcome to bloggy app'
-          .text
-          .bold
+      l10n.appWelcomeMsg.text.bold
           .textStyle(
             GoogleFonts.getFont('Lato'),
           )
