@@ -30,7 +30,7 @@ class LoginWebView extends StatelessWidget {
           .elevation(8)
           .make()
           .box
-          .height(context.safePercentHeight * 40)
+          .height(context.safePercentHeight * 50)
           .makeCentered()
           .pOnly(right: context.screenWidth * 0.1)
           .flexible(),

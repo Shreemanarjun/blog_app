@@ -4,7 +4,7 @@ import 'package:blog_app/features/login/view/responsive/mobile_login.dart';
 import 'package:blog_app/features/login/view/responsive/web_login.dart';
 import 'package:blog_app/features/login/view/widgets/logged_in_view.dart';
 import 'package:blog_app/l10n/l10n.dart';
-import 'package:blog_app/shared/widget/app_locale_popup.dart';
+import 'package:blog_app/shared/widget/app_locale_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -40,13 +40,8 @@ class _LoginViewState extends State<LoginView> {
             context: context,
             barrierDismissible: true,
             barrierLabel: 'Close',
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return const Center(
-                child: Material(
-                  child: AppLocalePopUp(),
-                ),
-              );
-            },
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const AppLocaleDialog(),
           );
         },
         icon: const Icon(Icons.translate),

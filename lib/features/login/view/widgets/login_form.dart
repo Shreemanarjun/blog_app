@@ -43,7 +43,7 @@ class LoginForm extends StatelessWidget {
                 formKey: formkey,
               ).py8()
             ],
-          ),
+          ).scrollVertical(),
         );
       },
     );
