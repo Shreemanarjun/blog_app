@@ -1,7 +1,7 @@
 {
   "@@locale": "hi",
   "appTitle": "Bloggy",
-  "appWelcomeMsg": "Welcome to bloggy app",
+  "appWelcomeMsg": "ब्लॉगी ऐप में आपका स्वागत है",
   "changeLanguage": "भाषा बदलें",
   "counterAppBarTitle": "Counter",
   "loginBtnTxt": "लॉग इन करें",

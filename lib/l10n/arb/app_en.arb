@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
   "appTitle": "Bloggy",
-  "appWelcomeMsg": "Welcome to bloggy app",
+  "appWelcomeMsg": "Welcome to Bloggy app",
   "changeLanguage": "Change Language",
   "counterAppBarTitle": "Counter",
   "loginBtnTxt": "Login",
