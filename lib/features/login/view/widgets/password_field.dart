@@ -15,7 +15,7 @@ class PasswordFormField extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     return FormBuilderTextField(
-      obscureText: ref.watch(showPasswordPod),
+      obscureText: !ref.watch(showPasswordPod),
       name: 'password',
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
