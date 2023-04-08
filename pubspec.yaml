@@ -7,14 +7,14 @@ environment:
   sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
-  auto_route: ^6.0.1
-  dio: ^5.0.3
+  auto_route: ^6.0.5
+  dio: ^5.1.1
   flutter:
     sdk: flutter
   flutter_form_builder: ^7.8.0
   flutter_localizations:
     sdk: flutter
-  flutter_riverpod: ^2.3.2
+  flutter_riverpod: ^2.3.4
   flutter_widget_from_html: ^0.10.0
   form_builder_validators: ^8.5.0
   google_language_fonts: ^2.0.0
@@ -22,7 +22,7 @@ dependencies:
   hydrated_state_notifier: ^1.0.0
   hydrated_state_notifier_hive: ^1.0.0
   intl: ^0.17.0
-  lottie: ^2.3.0
+  lottie: ^2.3.2
   openapi:
     path: api
   path_provider: ^2.0.14
@@ -32,13 +32,13 @@ dependencies:
   velocity_x: ^3.6.0
 
 dev_dependencies:
-  auto_route_generator: ^6.0.0
+  auto_route_generator: ^6.0.3
   build_runner: ^2.3.3
-  custom_lint: ^0.3.2
+  custom_lint: ^0.3.3
   flutter_test:
     sdk: flutter
   mocktail: ^0.3.0
-  riverpod_lint: ^1.1.6
+  riverpod_lint: ^1.1.8
   very_good_analysis: ^4.0.0
 
 flutter:
