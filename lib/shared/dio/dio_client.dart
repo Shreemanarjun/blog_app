@@ -34,11 +34,14 @@ final openapiPod = Provider.autoDispose<Openapi>((ref) {
       InterceptorsWrapper(
         onError: (e, handler) async {
           talker.debug(e.response?.statusCode);
-          if (e.response!.statusCode == 401) {
-            talker.debug('deleting token and moving to login page');
-            await ref.read(tokenServicePod).deleteToken();
-            await ref.read(autoRouterPod).replaceAll([const LoginRouter()]);
+          if (e.response != null) {
+            if (e.response!.statusCode == 401) {
+              talker.debug('deleting token and moving to login page');
+              await ref.read(tokenServicePod).deleteToken();
+              await ref.read(autoRouterPod).replaceAll([const LoginRouter()]);
+            }
           }
+
           handler.next(e);
         },
       ),
