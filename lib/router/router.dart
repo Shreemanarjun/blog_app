@@ -12,7 +12,7 @@ class AppRouter extends $AppRouter {
   late final List<AutoRoute> routes = [
     AutoRoute(
       page: LoginRouter.page,
-      path: '/',
+      initial: true,
       guards: [
         LoginGuard(
           tokenService: tokenService,
@@ -22,6 +22,11 @@ class AppRouter extends $AppRouter {
     AutoRoute(
       page: HomeRouter.page,
       path: '/home',
+    ),
+    AutoRoute(
+      page: AddABlogRouter.page,
+      path: '/addABlog',
+      fullscreenDialog: true,
     ),
   ];
 }
