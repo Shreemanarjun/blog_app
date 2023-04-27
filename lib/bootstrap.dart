@@ -16,9 +16,9 @@ import 'package:hydrated_state_notifier_hive/hydrated_state_notifier_hive.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
+  // FlutterError.onError = (details) {
+  //   log(details.exceptionAsString(), stackTrace: details.stack);
+  // };
   await Hive.initFlutter();
   final tokenbox = await Hive.openBox('tokens');
   HydratedStorage.storage = await HiveHydratedStorage.build(
