@@ -10,7 +10,12 @@ extension ErrorExtensionWidget on Object {
       final data = error.response?.data;
       if (data is Map<String, dynamic>) {
         final maperror = data;
-        return maperror['message'].toString().text.semiBold.makeCentered();
+        return maperror['message']
+            .toString()
+            .text
+            .isIntrinsic
+            .semiBold
+            .makeCentered();
       } else {
         return HtmlWidget(data.toString());
       }

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -12,6 +13,7 @@ extension AsyncDisplay<T> on AsyncValue<T> {
     bool skipError = false,
     bool isLinear = false,
     VoidCallback? onRetry,
+    bool includedefaultDioErrorMessage = false,
   }) =>
       when(
         data: data,
@@ -26,6 +28,7 @@ extension AsyncDisplay<T> on AsyncValue<T> {
                   error: error,
                   stackTrace: stackTrace,
                   onRetry: onRetry,
+                  includedefaultDioErrorMessage: includedefaultDioErrorMessage,
                 );
         },
         loading: () {
@@ -64,12 +67,14 @@ class DefaultErrorWidget extends StatelessWidget {
     required this.stackTrace,
     required this.onRetry,
     required this.isLinear,
+    required this.includedefaultDioErrorMessage,
     super.key,
   });
   final Object error;
   final StackTrace stackTrace;
   final VoidCallback? onRetry;
   final bool isLinear;
+  final bool includedefaultDioErrorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +83,10 @@ class DefaultErrorWidget extends StatelessWidget {
           ? Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ErrorTextWidget(error: error),
+                ErrorTextWidget(
+                  error: error,
+                  includedefaultDioErrorMessage: includedefaultDioErrorMessage,
+                ),
                 if (onRetry != null)
                   ElevatedButton(
                     onPressed: onRetry,
@@ -103,7 +111,10 @@ class DefaultErrorWidget extends StatelessWidget {
                     .make()
                     .p8()
                     .flexible(),
-                ErrorTextWidget(error: error),
+                ErrorTextWidget(
+                  error: error,
+                  includedefaultDioErrorMessage: includedefaultDioErrorMessage,
+                ),
                 if (onRetry != null)
                   ElevatedButton(
                     onPressed: onRetry,
@@ -120,12 +131,88 @@ class DefaultErrorWidget extends StatelessWidget {
 class ErrorTextWidget extends StatelessWidget {
   const ErrorTextWidget({
     required this.error,
+    required this.includedefaultDioErrorMessage,
     super.key,
   });
   final Object error;
+  final bool includedefaultDioErrorMessage;
 
   @override
   Widget build(BuildContext context) {
+    if (includedefaultDioErrorMessage && error is DioError) {
+      return DefaultDioErrorWidget(
+        dioError: error as DioError,
+      );
+    }
     return error.toString().text.bold.sm.make().p4().flexible();
+  }
+}
+
+class DefaultDioErrorWidget extends StatelessWidget {
+  const DefaultDioErrorWidget({
+    required this.dioError,
+    super.key,
+  });
+  final DioError dioError;
+
+  @override
+  Widget build(BuildContext context) {
+    switch (dioError.type) {
+      case DioErrorType.connectionTimeout:
+        return 'Connection Timeout Error'.text.bold.sm.make().p4().flexible();
+
+      case DioErrorType.sendTimeout:
+        return 'Unable to connect to the server.Please try again later.'
+            .text
+            .bold
+            .sm
+            .make()
+            .p8()
+            .flexible();
+
+      case DioErrorType.receiveTimeout:
+        return 'Check you internet connection reliability.'
+            .text
+            .bold
+            .sm
+            .make()
+            .p8()
+            .flexible();
+      case DioErrorType.badCertificate:
+        return 'Please update your OS or add certificate.'
+            .text
+            .bold
+            .sm
+            .make()
+            .p8()
+            .flexible();
+
+      case DioErrorType.badResponse:
+        return 'Something went wrong.Please try again later.'
+            .text
+            .bold
+            .sm
+            .make()
+            .p8()
+            .flexible();
+      case DioErrorType.cancel:
+        return 'Request Cancelled'.text.bold.sm.make().p4().flexible();
+      case DioErrorType.connectionError:
+        return 'Unable to connect to server.Please try again later.'
+            .text
+            .bold
+            .sm
+            .make()
+            .p8()
+            .flexible();
+      case DioErrorType.unknown:
+        return 'Please check your internet connection.'
+            .text
+            .bold
+            .sm
+            .make()
+            .p8()
+            .flexible();
+    }
   }
 }
