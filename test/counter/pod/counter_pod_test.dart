@@ -1,26 +1,70 @@
 import 'package:blog_app/counter/counter.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:riverpod_test/riverpod_test.dart';
+
+abstract class MyAbstract {}
+
+class AbstractwithconstConstructor implements MyAbstract {
+  const AbstractwithconstConstructor();
+}
+
+class NOConstAbstract implements MyAbstract {}
 
 void main() {
   group('CounterNotifier', () {
-    test('initial state is 0', () {
-      final container = ProviderContainer();
-      addTearDown(container.dispose);
-      expect(container.read(counterPod), equals(0));
-    });
+    testNotifier<CounterNotifier, int>(
+      'initial state is 0',
+      provider: counterPod,
+      expect: () => [0],
+      emitBuildStates: true,
+    );
+    testNotifier<CounterNotifier, int>(
+      'emits [0] on start then [1] when increment is called',
+      provider: counterPod,
+      expect: () => [0, 1],
+      emitBuildStates: true,
+      act: (notifier) => notifier.increment(),
+    );
+    testNotifier<CounterNotifier, int>(
+      'emits [1] when increment is called',
+      provider: counterPod,
+      expect: () => [1],
+      act: (notifier) => notifier.increment(),
+    );
+    testNotifier<CounterNotifier, int>(
+      'emits [0] on start then [-1] when increment is called',
+      provider: counterPod,
+      expect: () => [0, -1],
+      emitBuildStates: true,
+      act: (notifier) => notifier.decrement(),
+    );
+    testNotifier<CounterNotifier, int>(
+      'emits [-1] when decrement is called',
+      provider: counterPod,
+      expect: () => [-1],
+      act: (notifier) => notifier.decrement(),
+    );
+    testNotifier<CounterNotifier, int>(
+      'expect [2] when increment is called twice',
+      provider: counterPod,
+      act: (notifier) => notifier
+        ..increment()
+        ..increment(),
+      skip: 1,
+      expect: () => [2],
+    );
 
-    test('emits [1] when increment is called', () {
-      final container = ProviderContainer();
-      addTearDown(container.dispose);
-      container.read(counterPod.notifier).increment();
-      expect(container.read(counterPod), 1);
+    test('with const', () {
+      expect(
+        const AbstractwithconstConstructor(),
+        const AbstractwithconstConstructor(),
+      );
     });
-    test('emits [-1] when decrement is called', () {
-      final container = ProviderContainer();
-      addTearDown(container.dispose);
-      container.read(counterPod.notifier).decrement();
-      expect(container.read(counterPod), -1);
+    test('without const', () {
+      expect(
+        NOConstAbstract(),
+        isNot(equals(NOConstAbstract())),
+      );
     });
   });
 }
