@@ -1,14 +1,20 @@
 {
   "@@locale": "en",
+  "addablogtitle": "Add a blog",
   "appTitle": "Bloggy",
   "appWelcomeMsg": "Welcome to Bloggy app",
   "changeLanguage": "Change Language",
   "counterAppBarTitle": "Counter",
+  "descriptionhint": "Enter Description",
+  "descriptionlbl": "Description",
+  "emptyerrortxt": "This field cannot be empty.",
   "loginBtnTxt": "Login",
   "loginErrorText": "Login field is required.",
   "loginTitle": "Login",
   "passwordhint": "Enter Password",
   "passwordlbl": "Password",
+  "titlehint": "Enter Title",
+  "titlelbl": "Title",
   "usernamehint": "Enter Username",
   "usernamelbl": "Username"
 }

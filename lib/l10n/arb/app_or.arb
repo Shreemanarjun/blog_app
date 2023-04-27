@@ -1,14 +1,20 @@
 {
   "@@locale": "or",
+  "addablogtitle": "ଏକ ବ୍ଲଗ୍ ଯୋଡନ୍ତୁ |",
   "appTitle": "Bloggy",
   "appWelcomeMsg": "ବ୍ଲଗ୍ ଆପ୍ କୁ ଆପଣଙ୍କୁ ସ୍ୱାଗତ |",
   "changeLanguage": "ଭାଷା ପରିବର୍ତ୍ତନ କରନ୍ତୁ ",
   "counterAppBarTitle": "କାଉଣ୍ଟର",
+  "descriptionhint": "ବର୍ଣ୍ଣନା ପ୍ରବେଶ କରନ୍ତୁ |",
+  "descriptionlbl": "ବ୍ୟାଖ୍ୟା",
+  "emptyerrortxt": "ଏହି କ୍ଷେତ୍ର ଭରିବା ଆବଶ୍ୟକ |",
   "loginBtnTxt": "ପ୍ରବେଶ",
   "loginErrorText": "ଲଗଇନ୍ କ୍ଷେତ୍ର ଆବଶ୍ୟକ ଅଟେ |",
   "loginTitle": "ଲଗଇନ୍",
   "passwordhint": "ପାସୱାର୍ଡ ପ୍ରବେଶ କର ",
   "passwordlbl": "ପାସୱାର୍ଡ",
+  "titlehint": "ଆଖ୍ୟା ପ୍ରବେଶ କରନ୍ତୁ |",
+  "titlelbl": "ଆଖ୍ୟା",
   "usernamehint": "ଉପଯୋଗକର୍ତ୍ତା ନାମ ପ୍ରବେଶ କର ",
   "usernamelbl": "ଉପଯୋଗକର୍ତ୍ତା ନାମ"
 }

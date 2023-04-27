@@ -1,14 +1,20 @@
 {
   "@@locale": "hi",
+  "addablogtitle": "एक ब्लॉग जोड़ें",
   "appTitle": "Bloggy",
   "appWelcomeMsg": "ब्लॉगी ऐप में आपका स्वागत है",
   "changeLanguage": "भाषा बदलें",
   "counterAppBarTitle": "Counter",
+  "descriptionhint": "विवरण डालें",
+  "descriptionlbl": "विवरण",
+  "emptyerrortxt": "यह स्थान खाली नहीं रह सकता।",
   "loginBtnTxt": "लॉग इन करें",
   "loginErrorText": "लॉग इन स्थान भरा जाना है।",
   "loginTitle": "लॉग इन करें",
   "passwordhint": "पासवर्ड प्रवेश करना  ",
   "passwordlbl": "पासवर्ड",
+  "titlehint": "शीर्षक दर्ज करें",
+  "titlelbl": "शीर्षक",
   "usernamehint": "उपयोगकर्तानाम प्रवेश करना ",
   "usernamelbl": "उपयोगकर्तानाम"
 }
