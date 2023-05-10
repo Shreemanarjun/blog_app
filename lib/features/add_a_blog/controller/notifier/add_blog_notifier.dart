@@ -9,7 +9,7 @@ import 'package:openapi/openapi.dart';
 class AddBlogNotifier extends AutoDisposeAsyncNotifier<AddBlogState> {
   @override
   FutureOr<AddBlogState> build() {
-    return const InitialBlogState();
+    return InitialBlogState();
   }
 
   Future<void> addABlog({
@@ -18,7 +18,7 @@ class AddBlogNotifier extends AutoDisposeAsyncNotifier<AddBlogState> {
     required void Function(Object) onError,
     required VoidCallback onAdded,
   }) async {
-    state = const AsyncData(AddingBlogState());
+    state = AsyncData(AddingBlogState());
     final blogrequest = BlogRequest().rebuild((s) {
       s
         ..title = title
@@ -33,7 +33,7 @@ class AddBlogNotifier extends AutoDisposeAsyncNotifier<AddBlogState> {
           .blogPost(blogRequest: blogrequest);
       if (blogsresponse.statusCode == 201 || blogsresponse.statusCode == 200) {
         onAdded();
-        return const AddedBlogState();
+        return AddedBlogState();
       } else {
         onError(blogsresponse.data.toString());
 
