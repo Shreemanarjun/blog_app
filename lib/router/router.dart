@@ -19,14 +19,10 @@ class AppRouter extends $AppRouter {
         )
       ],
     ),
-    AutoRoute(
+    CustomRoute(
       page: HomeRouter.page,
+      transitionsBuilder: TransitionsBuilders.slideTop,
       path: '/home',
-    ),
-    AutoRoute(
-      page: AddABlogRouter.page,
-      path: '/addABlog',
-      fullscreenDialog: true,
     ),
   ];
 }

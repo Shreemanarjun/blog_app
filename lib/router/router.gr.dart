@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i4;
-import 'package:blog_app/features/add_a_blog/presentation/add_a_blog_view.dart'
+import 'package:blog_app/features/add_a_blog/view/add_a_blog_view.dart'
     deferred as _i3;
 import 'package:blog_app/features/home/view/home_view.dart' deferred as _i1;
 import 'package:blog_app/features/login/view/login_view.dart' deferred as _i2;
