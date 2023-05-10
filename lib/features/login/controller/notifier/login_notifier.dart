@@ -12,7 +12,7 @@ import 'package:openapi/openapi.dart';
 class LoginNotifier extends AutoDisposeAsyncNotifier<LoginState> {
   @override
   FutureOr<LoginState> build() {
-    return const IntialLoginState();
+    return IntialLoginState();
   }
 
   Future<void> login({
@@ -39,7 +39,7 @@ class LoginNotifier extends AutoDisposeAsyncNotifier<LoginState> {
         await ref
             .read(tokenServicePod)
             .saveToken(accessToken: mytoken!.accessToken!);
-        return const LoggedInState();
+        return LoggedInState();
       } on DioError {
         rethrow;
       }
