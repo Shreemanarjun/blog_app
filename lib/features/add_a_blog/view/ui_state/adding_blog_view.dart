@@ -11,6 +11,7 @@ class AddingBlogView extends StatelessWidget {
       LottieBuilder.asset(
         'assets/animation/loading.json',
       ).flexible(),
+      'Adding your blog'.text.isIntrinsic.bold.xl3.make(),
     ].vStack();
   }
 }

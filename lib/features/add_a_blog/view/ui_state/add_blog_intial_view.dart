@@ -1,5 +1,5 @@
-import 'package:blog_app/features/add_a_blog/presentation/widgets/description_field.dart';
-import 'package:blog_app/features/add_a_blog/presentation/widgets/title_field.dart';
+import 'package:blog_app/features/add_a_blog/view/widgets/description_field.dart';
+import 'package:blog_app/features/add_a_blog/view/widgets/title_field.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 

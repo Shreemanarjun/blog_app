@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+
+@immutable
 abstract class AddBlogState {
   const AddBlogState();
 }
@@ -15,13 +18,23 @@ class AddedBlogState extends AddBlogState {
 }
 
 class AddBlogErrorState extends AddBlogState {
-  AddBlogErrorState({
+  const AddBlogErrorState({
     required this.error,
   });
   final String error;
 
   @override
   String toString() => 'AddBlogErrorState(error: $error)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is AddBlogErrorState && other.error == error;
+  }
+
+  @override
+  int get hashCode => error.hashCode;
 }
 
 extension AddBlogStateUnion on AddBlogState {

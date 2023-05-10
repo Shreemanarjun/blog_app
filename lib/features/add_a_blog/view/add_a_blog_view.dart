@@ -1,8 +1,7 @@
-import 'package:auto_route/annotations.dart';
 import 'package:blog_app/features/add_a_blog/controller/add_a_blog_pod.dart';
-import 'package:blog_app/features/add_a_blog/presentation/ui_state/add_blog_intial_view.dart';
-import 'package:blog_app/features/add_a_blog/presentation/ui_state/adding_blog_view.dart';
 import 'package:blog_app/features/add_a_blog/state/add_blog_state.dart';
+import 'package:blog_app/features/add_a_blog/view/ui_state/add_blog_intial_view.dart';
+import 'package:blog_app/features/add_a_blog/view/ui_state/adding_blog_view.dart';
 import 'package:blog_app/features/home/controller/blog_list_pod.dart';
 import 'package:blog_app/l10n/l10n.dart';
 import 'package:blog_app/shared/riverpod_extension/asyncvalue_easy_when.dart';
@@ -11,10 +10,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-@RoutePage(
-  name: 'AddABlogRouter',
-  deferredLoading: true,
-)
 class AddABlogView extends ConsumerStatefulWidget {
   const AddABlogView({super.key});
 
@@ -46,21 +41,16 @@ class _AddABlogViewState extends ConsumerState<AddABlogView> {
                 ),
               );
             },
-            onAdded: () {
+            onAdded: () async {
               ref.invalidate(blogListPod);
-              Future.delayed(
-                const Duration(seconds: 2),
-                () {
-                  if (context.mounted) {
-                    Navigator.of(context).pop();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: '✅ Added a new blog'.text.isIntrinsic.make(),
-                      ),
-                    );
-                  }
-                },
-              );
+              if (context.mounted) {
+                context.pop<void>();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: '✅ Added a new blog'.text.isIntrinsic.make(),
+                  ),
+                );
+              }
             },
           );
     }
@@ -75,7 +65,6 @@ class _AddABlogViewState extends ConsumerState<AddABlogView> {
       ),
       body: FormBuilder(
         key: _formKey,
-        autoFocusOnValidationFailure: true,
         child: Consumer(
           builder: (context, ref, child) {
             final addBlogAsync = ref.watch(addABlogPod);
