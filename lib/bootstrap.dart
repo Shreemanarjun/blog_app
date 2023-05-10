@@ -19,23 +19,28 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   // FlutterError.onError = (details) {
   //   log(details.exceptionAsString(), stackTrace: details.stack);
   // };
-  await Hive.initFlutter();
-  final tokenbox = await Hive.openBox('tokens');
-  HydratedStorage.storage = await HiveHydratedStorage.build(
-    storageDirectoryPath: kIsWeb ? '' : (await getTemporaryDirectory()).path,
-  );
+
   await runZonedGuarded(
-    () async => runApp(
-      ProviderScope(
-        overrides: [
-          tokenBoxPod.overrideWithValue(tokenbox),
-        ],
-        observers: [
-          if (kDebugMode) MyProviderObserver(talker: talker),
-        ],
-        child: await builder(),
-      ),
-    ),
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await Hive.initFlutter();
+      final tokenbox = await Hive.openBox('tokens');
+      HydratedStorage.storage = await HiveHydratedStorage.build(
+        storageDirectoryPath:
+            kIsWeb ? '' : (await getTemporaryDirectory()).path,
+      );
+      runApp(
+        ProviderScope(
+          overrides: [
+            tokenBoxPod.overrideWithValue(tokenbox),
+          ],
+          observers: [
+            if (kDebugMode) MyProviderObserver(talker: talker),
+          ],
+          child: await builder(),
+        ),
+      );
+    },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }

@@ -18,7 +18,10 @@ dependencies:
   flutter_riverpod: ^2.3.6
   flutter_widget_from_html: ^0.10.0
   form_builder_validators: ^8.6.1
-  google_language_fonts: ^2.0.0
+  google_language_fonts:
+    git:
+      url: https://github.com/Shreemanarjun/google-language-fonts-flutter
+      ref: v3.0.0
   hive_flutter: ^1.1.0
   hydrated_state_notifier: ^1.0.0
   hydrated_state_notifier_hive: ^1.0.0
@@ -30,11 +33,10 @@ dependencies:
   platform_info: ^3.2.0
   talker: ^2.4.1
   talker_dio_logger: ^1.2.2
-  velocity_x: 
+  velocity_x:
     git:
       url: https://github.com/Shreemanarjun/VelocityX.git
       ref: v4.0-release # branch name
-
 
 dependency_overrides:
   intl: '0.18.1'

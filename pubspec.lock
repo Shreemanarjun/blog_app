@@ -552,11 +552,12 @@ packages:
   google_language_fonts:
     dependency: "direct main"
     description:
-      name: google_language_fonts
-      sha256: bfe9bd85eb5b0a5fd6f0224ac60992db50ec2c5a4bca3a4126503ebff7daa963
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
+      path: "."
+      ref: "v3.0.0"
+      resolved-ref: "271bdf864dbc84c796ef75e012fdd55a281c11dc"
+      url: "https://github.com/Shreemanarjun/google-language-fonts-flutter"
+    source: git
+    version: "3.0.0"
   graphs:
     dependency: transitive
     description:
@@ -916,6 +917,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.4"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      sha256: "01dd9bd0fa02548bf2ceee13545d4a0ec6046459d847b6b061d8a27237108a08"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   provider:
     dependency: transitive
     description:
@@ -1350,10 +1359,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: d1ba6ce3fa60807433511f943b51607bd7073f8fe5c14286d66fec8e05c8d24c
+      sha256: "1311639ad908dfdcb64734ac1fbd60416234c06e4351846783a79c56848a5185"
       url: "https://pub.dev"
     source: hosted
-    version: "11.5.0"
+    version: "11.7.0"
   vxstate:
     dependency: transitive
     description:
