@@ -2,7 +2,7 @@
 FLUTTER_ROOT=/Users/shreemanarjunsahu/fvm/versions/stable
 FLUTTER_APPLICATION_PATH=/Users/shreemanarjunsahu/Documents/blog_app
 COCOAPODS_PARALLEL_CODE_SIGN=true
-FLUTTER_TARGET=/Users/shreemanarjunsahu/Documents/blog_app/lib/main_development.dart
+FLUTTER_TARGET=/Users/shreemanarjunsahu/Documents/blog_app/lib/main.dart
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1
