@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 
 @immutable
-sealed class AddBlogState {}
+sealed class AddBlogState {
+  const AddBlogState();
+}
 
 class InitialBlogState extends AddBlogState {
-  InitialBlogState();
+  const InitialBlogState();
 }
 
 class AddingBlogState extends AddBlogState {
-  AddingBlogState();
+  const AddingBlogState();
 }
 
 class AddedBlogState extends AddBlogState {
-  AddedBlogState();
+  const AddedBlogState();
 }
 
 class AddBlogErrorState extends AddBlogState {
-  AddBlogErrorState({
+  const AddBlogErrorState({
     required this.error,
   });
   final String error;
