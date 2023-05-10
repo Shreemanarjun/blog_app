@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:blog_app/core/theme/theme.dart';
 import 'package:blog_app/l10n/l10n.dart';
 import 'package:blog_app/router/router_pod.dart';
 import 'package:blog_app/shared/pod/locale_pod.dart';
@@ -11,21 +11,12 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final approuter = ref.watch(autoRouterPod);
+    final theme = ref.watch(themePod);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: const Color(0xFF13B9FF),
-        ),
-        pageTransitionsTheme: const PageTransitionsTheme(
-          builders: {
-            // replace default CupertinoPageTransitionsBuilder with this
-            TargetPlatform.iOS: NoShadowCupertinoPageTransitionsBuilder(),
-            TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-          },
-        ),
-      ),
+      theme: theme.lightTheme,
+      darkTheme: theme.dartkTheme,
+      themeMode: ThemeMode.light,
       routerConfig: approuter.config(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       locale: ref.watch(localePod),
