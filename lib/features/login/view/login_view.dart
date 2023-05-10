@@ -2,9 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:blog_app/features/login/controller/login_pod.dart';
 import 'package:blog_app/features/login/view/responsive/mobile_login.dart';
 import 'package:blog_app/features/login/view/responsive/web_login.dart';
+import 'package:blog_app/features/login/view/widgets/change_language_floating_btn.dart';
 import 'package:blog_app/features/login/view/widgets/logged_in_view.dart';
-import 'package:blog_app/l10n/l10n.dart';
-import 'package:blog_app/shared/widget/app_locale_dialog.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -47,21 +46,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          showGeneralDialog(
-            context: context,
-            barrierDismissible: true,
-            barrierLabel: 'Close',
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                const AppLocaleDialog(),
-          );
-        },
-        icon: const Icon(Icons.translate),
-        label: l10n.changeLanguage.text.make(),
-      ),
+      floatingActionButton: const ChangeLanguageFloatingBtn(),
       body: SafeArea(
         child: Consumer(
           builder: (context, ref, child) {

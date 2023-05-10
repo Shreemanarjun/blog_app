@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
 @immutable
-abstract class LoginState {}
+abstract class LoginState {
+  const LoginState();
+}
 
-class IntialLoginState extends LoginState {}
+class IntialLoginState extends LoginState {
+  const IntialLoginState() : super();
+}
 
-class LoggedInState extends LoginState {}
+class LoggedInState extends LoginState {
+  const LoggedInState() : super();
+}
 
 class LoginErrorState extends LoginState {
-  LoginErrorState({required this.error});
+  const LoginErrorState({required this.error});
 
   final String error;
 
