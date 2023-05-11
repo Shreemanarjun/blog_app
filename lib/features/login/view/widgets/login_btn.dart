@@ -17,31 +17,26 @@ class LoginButtonView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final loginStateAsync = ref.watch(loginPod);
     return loginStateAsync.easyWhen(
-      data: (loginState) {
-        switch (loginState) {
-          case final IntialLoginState _:
-            return ElevatedButton(
-              onPressed: ref.watch(enableLoginFormPod) ? onLoginPressed : null,
-              child: 'Login'.text.make(),
-            );
-          case LoggedInState _:
-            return ElevatedButton(
-              onPressed: null,
-              child: 'Loggedin'.text.make(),
-            );
-          case final LoginErrorState s:
-            return Column(
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed:
-                      ref.watch(enableLoginFormPod) ? onLoginPressed : null,
-                  child: 'Retry Login'.text.make(),
-                ),
-                s.error.easyError().p8(),
-              ],
-            );
-        }
+      data: (loginState) => switch (loginState) {
+        IntialLoginState() => ElevatedButton(
+            onPressed: ref.watch(enableLoginFormPod) ? onLoginPressed : null,
+            child: 'Login'.text.make(),
+          ),
+        LoggedInState() => ElevatedButton(
+            onPressed: null,
+            child: 'Loggedin'.text.make(),
+          ),
+        LoginErrorState() => Column(
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                onPressed:
+                    ref.watch(enableLoginFormPod) ? onLoginPressed : null,
+                child: 'Retry Login'.text.make(),
+              ),
+              loginState.error.easyError().p8(),
+            ],
+          ),
       },
       errorWidget: (error, stackTrace) => Column(
         children: [

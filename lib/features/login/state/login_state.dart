@@ -5,15 +5,15 @@ sealed class LoginState {
   const LoginState();
 }
 
-class IntialLoginState extends LoginState {
+class IntialLoginState implements LoginState {
   const IntialLoginState() : super();
 }
 
-class LoggedInState extends LoginState {
+class LoggedInState implements LoginState {
   const LoggedInState() : super();
 }
 
-class LoginErrorState extends LoginState {
+class LoginErrorState implements LoginState {
   const LoginErrorState({required this.error});
 
   final String error;
