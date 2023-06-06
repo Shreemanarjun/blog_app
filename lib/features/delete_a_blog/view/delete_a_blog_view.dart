@@ -37,16 +37,13 @@ class _DeleteABlogState extends ConsumerState<DeleteABlogView> {
             final deleteAsynState = ref.watch(deleteBlogPod(widget.blogId));
             return deleteAsynState.easyWhen(
               data: (deleteblogstate) {
-                switch (deleteblogstate) {
-                  case IntialBlogDeleteState _:
-                    return InitialBlogDeleteView(
+                return switch (deleteblogstate) {
+                  IntialBlogDeleteState _ => InitialBlogDeleteView(
                       blogId: widget.blogId,
                       onDelete: deleteBlog,
-                    );
-                  case DeletingBlogState _:
-                    return const DeletingBlogView();
-                  case DeletedBlogState _:
-                    return 'Blog deleted successfully'
+                    ),
+                  DeletingBlogState _ => const DeletingBlogView(),
+                  DeletedBlogState _ => 'Blog deleted successfully'
                         .text
                         .xl
                         .isIntrinsic
@@ -58,9 +55,8 @@ class _DeleteABlogState extends ConsumerState<DeleteABlogView> {
                           h: 32,
                         )
                         .scrollVertical()
-                        .centered();
-                  case final DeleteBlogError s:
-                    return <Widget>[
+                        .centered(),
+                  DeleteBlogError s => <Widget>[
                       s.error.text.bold
                           .makeCentered()
                           .pOnly(top: 32)
@@ -71,8 +67,8 @@ class _DeleteABlogState extends ConsumerState<DeleteABlogView> {
                         onPressed: () => context.pop<void>(),
                         child: 'OK'.text.make(),
                       ).pOnly(top: 20)
-                    ].vStack().scrollVertical().centered();
-                }
+                    ].vStack().scrollVertical().centered()
+                };
               },
               includedefaultDioErrorMessage: true,
               onRetry: deleteBlog,

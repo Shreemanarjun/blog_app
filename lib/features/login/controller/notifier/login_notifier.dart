@@ -40,7 +40,7 @@ class LoginNotifier extends AutoDisposeAsyncNotifier<LoginState> {
             .read(tokenServicePod)
             .saveToken(accessToken: mytoken!.accessToken!);
         return const LoggedInState();
-      } on DioError {
+      } on DioException {
         rethrow;
       }
     });

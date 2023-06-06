@@ -138,14 +138,13 @@ class ErrorTextWidget extends StatelessWidget {
   final bool includedefaultDioErrorMessage;
 
   @override
-  Widget build(BuildContext context) {
-    if (includedefaultDioErrorMessage && error is DioError) {
-      return DefaultDioErrorWidget(
-        dioError: error as DioError,
-      );
-    }
-    return error.toString().text.bold.sm.make().p4().flexible();
-  }
+  Widget build(BuildContext context) => switch (error) {
+        (final DioException e) when includedefaultDioErrorMessage =>
+          DefaultDioErrorWidget(
+            dioError: e,
+          ),
+        _ => error.toString().text.bold.sm.make().p4().flexible(),
+      };
 }
 
 class DefaultDioErrorWidget extends StatelessWidget {
@@ -153,66 +152,62 @@ class DefaultDioErrorWidget extends StatelessWidget {
     required this.dioError,
     super.key,
   });
-  final DioError dioError;
+  final DioException dioError;
 
   @override
   Widget build(BuildContext context) {
-    switch (dioError.type) {
-      case DioErrorType.connectionTimeout:
-        return 'Connection Timeout Error'.text.bold.sm.make().p4().flexible();
-
-      case DioErrorType.sendTimeout:
-        return 'Unable to connect to the server.Please try again later.'
+    return switch (dioError.type) {
+      DioExceptionType.connectionTimeout =>
+        'Connection Timeout Error'.text.bold.sm.make().p4().flexible(),
+      DioExceptionType.sendTimeout =>
+        'Unable to connect to the server.Please try again later.'
             .text
             .bold
             .sm
             .make()
             .p8()
-            .flexible();
-
-      case DioErrorType.receiveTimeout:
-        return 'Check you internet connection reliability.'
+            .flexible(),
+      DioExceptionType.receiveTimeout =>
+        'Check you internet connection reliability.'
             .text
             .bold
             .sm
             .make()
             .p8()
-            .flexible();
-      case DioErrorType.badCertificate:
-        return 'Please update your OS or add certificate.'
+            .flexible(),
+      DioExceptionType.badCertificate =>
+        'Please update your OS or add certificate.'
             .text
             .bold
             .sm
             .make()
             .p8()
-            .flexible();
-
-      case DioErrorType.badResponse:
-        return 'Something went wrong.Please try again later.'
+            .flexible(),
+      DioExceptionType.badResponse =>
+        'Something went wrong.Please try again later.'
             .text
             .bold
             .sm
             .make()
             .p8()
-            .flexible();
-      case DioErrorType.cancel:
-        return 'Request Cancelled'.text.bold.sm.make().p4().flexible();
-      case DioErrorType.connectionError:
-        return 'Unable to connect to server.Please try again later.'
+            .flexible(),
+      DioExceptionType.cancel =>
+        'Request Cancelled'.text.bold.sm.make().p4().flexible(),
+      DioExceptionType.connectionError =>
+        'Unable to connect to server.Please try again later.'
             .text
             .bold
             .sm
             .make()
             .p8()
-            .flexible();
-      case DioErrorType.unknown:
-        return 'Please check your internet connection.'
-            .text
-            .bold
-            .sm
-            .make()
-            .p8()
-            .flexible();
-    }
+            .flexible(),
+      DioExceptionType.unknown => 'Please check your internet connection.'
+          .text
+          .bold
+          .sm
+          .make()
+          .p8()
+          .flexible()
+    };
   }
 }

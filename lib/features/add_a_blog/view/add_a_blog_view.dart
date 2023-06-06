@@ -70,16 +70,15 @@ class _AddABlogViewState extends ConsumerState<AddABlogView> {
             final addBlogAsync = ref.watch(addABlogPod);
             return addBlogAsync.easyWhen(
               data: (addblogstate) {
-                switch (addblogstate) {
-                  case InitialBlogState _:
-                    return AddBlogIntialView(onLoginPressed: onAddPressed);
-                  case AddingBlogState _:
-                    return const AddingBlogView();
-                  case AddBlogErrorState _:
-                    return AddBlogIntialView(onLoginPressed: onAddPressed);
-                  case AddedBlogState _:
-                    return AddBlogIntialView(onLoginPressed: onAddPressed);
-                }
+                return switch (addblogstate) {
+                  InitialBlogState _ =>
+                    AddBlogIntialView(onLoginPressed: onAddPressed),
+                  AddingBlogState _ => const AddingBlogView(),
+                  AddBlogErrorState _ =>
+                    AddBlogIntialView(onLoginPressed: onAddPressed),
+                  AddedBlogState _ =>
+                    AddBlogIntialView(onLoginPressed: onAddPressed)
+                };
               },
               onRetry: () {
                 ref.invalidate(addABlogPod);
