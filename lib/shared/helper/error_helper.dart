@@ -4,23 +4,18 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 extension ErrorExtensionWidget on Object {
-  Widget easyError() {
-    if (this is DioError) {
-      final error = this as DioError;
-      final data = error.response?.data;
-      if (data is Map<String, dynamic>) {
-        final maperror = data;
-        return maperror['message']
-            .toString()
-            .text
-            .isIntrinsic
-            .semiBold
-            .makeCentered();
-      } else {
-        return HtmlWidget(data.toString());
-      }
-    } else {
-      return Text(toString());
-    }
-  }
+  Widget easyError() => switch (this) {
+        (final DioException e)
+            when e.response != null && e.response?.data != null =>
+          switch (e.response?.data) {
+            (final Map<String, dynamic> maperror) => maperror['message']
+                .toString()
+                .text
+                .isIntrinsic
+                .semiBold
+                .makeCentered(),
+            _ => HtmlWidget(e.response!.data.toString())
+          },
+        _ => Text(toString()),
+      };
 }
