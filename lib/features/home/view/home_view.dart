@@ -56,11 +56,21 @@ class _HomeViewState extends State<HomeView> {
             onPressed: () {
               showModalBottomSheet<void>(
                 context: context,
-                builder: (context) => const AddABlogView(),
-                constraints: const BoxConstraints(
+                builder: (context) => DraggableScrollableSheet(
+                  initialChildSize: 0.75,
+                  snap: true,
+                  expand: false,
+                  builder: (context, scrollController) {
+                    return const AddABlogView();
+                  },
+                ),
+                constraints: BoxConstraints(
                   maxWidth: 600,
+                  maxHeight: context.safePercentHeight * 150,
                 ),
                 routeSettings: const RouteSettings(name: 'add a blog route'),
+                useSafeArea: true,
+                isScrollControlled: true,
               );
             },
             child: const Icon(Icons.add),

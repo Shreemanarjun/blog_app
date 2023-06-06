@@ -50,6 +50,11 @@ class _LoggedInViewState extends ConsumerState<LoggedInView> {
           .makeCentered()
           .flexible(),
       const CircularProgressIndicator.adaptive().p8(),
-    ].vStack().scrollVertical().centered();
+    ]
+        .vStack(
+          axisSize: MainAxisSize.min,
+        )
+        .scrollVertical()
+        .centered();
   }
 }

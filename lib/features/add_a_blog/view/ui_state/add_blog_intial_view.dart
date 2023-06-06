@@ -22,6 +22,9 @@ class AddBlogIntialView extends StatelessWidget {
         onPressed: onLoginPressed,
         child: 'Add to blogs'.text.make(),
       ).p8().flexible(),
-    ].vStack(crossAlignment: CrossAxisAlignment.stretch);
+    ].vStack(
+      crossAlignment: CrossAxisAlignment.stretch,
+      axisSize: MainAxisSize.min,
+    );
   }
 }

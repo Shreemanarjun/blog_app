@@ -13,9 +13,9 @@ class _NoteAnimationState extends State<NoteAnimation>
   late AnimationController animationcontroller;
   @override
   void initState() {
+    super.initState();
     animationcontroller = AnimationController(vsync: this);
     animationcontroller.repeat(period: const Duration(seconds: 3));
-    super.initState();
   }
 
   @override

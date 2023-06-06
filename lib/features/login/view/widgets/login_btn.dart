@@ -26,7 +26,7 @@ class LoginButtonView extends ConsumerWidget {
             onPressed: null,
             child: 'Loggedin'.text.make(),
           ),
-        LoginErrorState() => Column(
+        LoginErrorState(error: final error) => Column(
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
@@ -34,7 +34,7 @@ class LoginButtonView extends ConsumerWidget {
                     ref.watch(enableLoginFormPod) ? onLoginPressed : null,
                 child: 'Retry Login'.text.make(),
               ),
-              loginState.error.easyError().p8(),
+              error.easyError().p8(),
             ],
           ),
       },
@@ -58,7 +58,9 @@ class LoginButtonView extends ConsumerWidget {
               .width(40)
               .make(),
           'Logging you in'.text.make(),
-        ].hStack(),
+        ].hStack(
+          axisSize: MainAxisSize.min,
+        ),
       ),
       includedefaultDioErrorMessage: true,
     );

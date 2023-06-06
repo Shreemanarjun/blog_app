@@ -49,7 +49,9 @@ class HomeSuccess extends StatelessWidget {
                 color: Colors.red,
               ),
             ),
-          ].hStack(),
+          ].hStack(
+            axisSize: MainAxisSize.min,
+          ),
           isThreeLine: true,
         );
       },

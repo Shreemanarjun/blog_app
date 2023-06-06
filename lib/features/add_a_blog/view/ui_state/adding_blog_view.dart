@@ -12,6 +12,8 @@ class AddingBlogView extends StatelessWidget {
         'assets/animation/loading.json',
       ).flexible(),
       'Adding your blog'.text.isIntrinsic.bold.xl3.make(),
-    ].vStack();
+    ].vStack(
+      axisSize: MainAxisSize.min,
+    );
   }
 }

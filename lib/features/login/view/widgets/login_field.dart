@@ -24,11 +24,7 @@ class LoginFormField extends StatelessWidget {
           color: Vx.cyan700,
         ),
       ),
-      validator: FormBuilderValidators.compose(
-        [
-          FormBuilderValidators.required(),
-        ],
-      ),
+      validator: FormBuilderValidators.required(),
     );
   }
 }
