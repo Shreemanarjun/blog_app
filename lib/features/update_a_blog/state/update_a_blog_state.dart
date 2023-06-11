@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 @immutable
-abstract class UpadateABlogState {
+sealed class UpadateABlogState {
   const UpadateABlogState();
 }
 
 class InitialUpdateBlogState extends UpadateABlogState {
-  const InitialUpdateBlogState() : super();
+  const InitialUpdateBlogState();
 }
 
 class UpdatingBlogState extends UpadateABlogState {
-  const UpdatingBlogState() : super();
+  const UpdatingBlogState();
 }
 
 class UpdatedBlogState extends UpadateABlogState {
-  const UpdatedBlogState() : super();
+  const UpdatedBlogState();
 }
 
 class ErrorUpdatingBlogState extends UpadateABlogState {
@@ -35,27 +35,4 @@ class ErrorUpdatingBlogState extends UpadateABlogState {
 
   @override
   String toString() => 'ErrorUpdatingBlogState(error: $error)';
-}
-
-extension UpadateABlogStateUnion on UpadateABlogState {
-  T map<T>({
-    required T Function(InitialUpdateBlogState) initialUpdateBlogState,
-    required T Function(UpdatingBlogState) updatingBlogState,
-    required T Function(UpdatedBlogState) updatedBlogState,
-    required T Function(ErrorUpdatingBlogState) errorUpdatingBlogState,
-  }) {
-    if (this is InitialUpdateBlogState) {
-      return initialUpdateBlogState(this as InitialUpdateBlogState);
-    }
-    if (this is UpdatingBlogState) {
-      return updatingBlogState(this as UpdatingBlogState);
-    }
-    if (this is UpdatedBlogState) {
-      return updatedBlogState(this as UpdatedBlogState);
-    }
-    if (this is ErrorUpdatingBlogState) {
-      return errorUpdatingBlogState(this as ErrorUpdatingBlogState);
-    }
-    throw AssertionError('Union does not match any possible values');
-  }
 }
