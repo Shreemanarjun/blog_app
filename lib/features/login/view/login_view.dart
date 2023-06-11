@@ -47,6 +47,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       floatingActionButton: const ChangeLanguageFloatingBtn(),
       body: SafeArea(
         child: Consumer(

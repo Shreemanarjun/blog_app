@@ -30,7 +30,7 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Blogs>> blogGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -77,12 +77,12 @@ class BlogsApi {
         specifiedType: _responseType,
       ) as Blogs;
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -111,7 +111,7 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Blogs>> blogIdDelete({
     required int id,
     CancelToken? cancelToken,
@@ -159,12 +159,12 @@ class BlogsApi {
         specifiedType: _responseType,
       ) as Blogs;
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -193,7 +193,7 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Blogs>> blogPatch({
     required BlogUpdateRequest blogUpdateRequest,
     CancelToken? cancelToken,
@@ -232,14 +232,14 @@ class BlogsApi {
       _bodyData =
           _serializers.serialize(blogUpdateRequest, specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        stackTrace: stackTrace,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -261,12 +261,12 @@ class BlogsApi {
         specifiedType: _responseType,
       ) as Blogs;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
-        stackTrace: stackTrace,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -295,7 +295,7 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Blogs>> blogPost({
     required BlogRequest blogRequest,
     CancelToken? cancelToken,
@@ -333,14 +333,14 @@ class BlogsApi {
       const _type = FullType(BlogRequest);
       _bodyData = _serializers.serialize(blogRequest, specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -362,12 +362,12 @@ class BlogsApi {
         specifiedType: _responseType,
       ) as Blogs;
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 

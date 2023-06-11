@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+// ignore_for_file: unused_element
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,75 +13,114 @@ part 'my_token.g.dart';
 /// Properties:
 /// * [accessToken] 
 /// * [refreshToken] 
+@BuiltValue()
 abstract class MyToken implements Built<MyToken, MyTokenBuilder> {
-    @BuiltValueField(wireName: r'accessToken')
-    String? get accessToken;
+  @BuiltValueField(wireName: r'accessToken')
+  String? get accessToken;
 
-    @BuiltValueField(wireName: r'refreshToken')
-    String? get refreshToken;
+  @BuiltValueField(wireName: r'refreshToken')
+  String? get refreshToken;
 
-    MyToken._();
+  MyToken._();
 
-    @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(MyTokenBuilder b) => b;
+  factory MyToken([void updates(MyTokenBuilder b)]) = _$MyToken;
 
-    factory MyToken([void updates(MyTokenBuilder b)]) = _$MyToken;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MyTokenBuilder b) => b;
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<MyToken> get serializer => _$MyTokenSerializer();
+  @BuiltValueSerializer(custom: true)
+  static Serializer<MyToken> get serializer => _$MyTokenSerializer();
 }
 
-class _$MyTokenSerializer implements StructuredSerializer<MyToken> {
-    @override
-    final Iterable<Type> types = const [MyToken, _$MyToken];
+class _$MyTokenSerializer implements PrimitiveSerializer<MyToken> {
+  @override
+  final Iterable<Type> types = const [MyToken, _$MyToken];
 
-    @override
-    final String wireName = r'MyToken';
+  @override
+  final String wireName = r'MyToken';
 
-    @override
-    Iterable<Object?> serialize(Serializers serializers, MyToken object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
-        if (object.accessToken != null) {
-            result
-                ..add(r'accessToken')
-                ..add(serializers.serialize(object.accessToken,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.refreshToken != null) {
-            result
-                ..add(r'refreshToken')
-                ..add(serializers.serialize(object.refreshToken,
-                    specifiedType: const FullType(String)));
-        }
-        return result;
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    MyToken object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    if (object.accessToken != null) {
+      yield r'accessToken';
+      yield serializers.serialize(
+        object.accessToken,
+        specifiedType: const FullType(String),
+      );
     }
-
-    @override
-    MyToken deserialize(Serializers serializers, Iterable<Object?> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = MyTokenBuilder();
-
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final Object? value = iterator.current;
-            
-            switch (key) {
-                case r'accessToken':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.accessToken = valueDes;
-                    break;
-                case r'refreshToken':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.refreshToken = valueDes;
-                    break;
-            }
-        }
-        return result.build();
+    if (object.refreshToken != null) {
+      yield r'refreshToken';
+      yield serializers.serialize(
+        object.refreshToken,
+        specifiedType: const FullType(String),
+      );
     }
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MyToken object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required MyTokenBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'accessToken':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.accessToken = valueDes;
+          break;
+        case r'refreshToken':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.refreshToken = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  MyToken deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MyTokenBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

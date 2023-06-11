@@ -29,7 +29,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> userHelloGet({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -82,7 +82,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> userOkGet({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -135,7 +135,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MyToken] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<MyToken>> userRefreshAccessTokenPost({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -183,12 +183,12 @@ class UserApi {
       ) as MyToken;
 
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 

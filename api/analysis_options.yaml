@@ -1,6 +1,9 @@
 analyzer:
   language:
-    strict-inference: true
-    strict-raw-types: true
+    strict-inference: false
+    strict-raw-types: false
+
   exclude:
     - test/*.dart
+  errors:
+    deprecated_member_use_from_same_package: ignore

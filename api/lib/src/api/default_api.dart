@@ -11,7 +11,6 @@ import 'package:openapi/src/model/tokens.dart';
 import 'package:openapi/src/model/users.dart';
 
 class DefaultApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -19,7 +18,7 @@ class DefaultApi {
   const DefaultApi(this._dio, this._serializers);
 
   /// allTokensGet
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -30,8 +29,8 @@ class DefaultApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Tokens] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Tokens>> allTokensGet({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Tokens>> allTokensGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -68,14 +67,13 @@ class DefaultApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Tokens;
-
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -92,7 +90,7 @@ class DefaultApi {
   }
 
   /// allUserGet
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -103,8 +101,8 @@ class DefaultApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Users] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Users>> allUserGet({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Users>> allUserGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -141,14 +139,13 @@ class DefaultApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Users;
-
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -165,7 +162,7 @@ class DefaultApi {
   }
 
   /// jsonKotlinxSerializationGet
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -176,8 +173,8 @@ class DefaultApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> jsonKotlinxSerializationGet({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> jsonKotlinxSerializationGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -210,7 +207,7 @@ class DefaultApi {
   }
 
   /// nameGet
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -221,8 +218,8 @@ class DefaultApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> nameGet({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> nameGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -253,5 +250,4 @@ class DefaultApi {
 
     return _response;
   }
-
 }

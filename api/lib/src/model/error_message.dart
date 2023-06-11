@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+// ignore_for_file: unused_element
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,61 +12,97 @@ part 'error_message.g.dart';
 ///
 /// Properties:
 /// * [message] 
+@BuiltValue()
 abstract class ErrorMessage implements Built<ErrorMessage, ErrorMessageBuilder> {
-    @BuiltValueField(wireName: r'message')
-    String? get message;
+  @BuiltValueField(wireName: r'message')
+  String? get message;
 
-    ErrorMessage._();
+  ErrorMessage._();
 
-    @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(ErrorMessageBuilder b) => b;
+  factory ErrorMessage([void updates(ErrorMessageBuilder b)]) = _$ErrorMessage;
 
-    factory ErrorMessage([void updates(ErrorMessageBuilder b)]) = _$ErrorMessage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ErrorMessageBuilder b) => b;
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<ErrorMessage> get serializer => _$ErrorMessageSerializer();
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ErrorMessage> get serializer => _$ErrorMessageSerializer();
 }
 
-class _$ErrorMessageSerializer implements StructuredSerializer<ErrorMessage> {
-    @override
-    final Iterable<Type> types = const [ErrorMessage, _$ErrorMessage];
+class _$ErrorMessageSerializer implements PrimitiveSerializer<ErrorMessage> {
+  @override
+  final Iterable<Type> types = const [ErrorMessage, _$ErrorMessage];
 
-    @override
-    final String wireName = r'ErrorMessage';
+  @override
+  final String wireName = r'ErrorMessage';
 
-    @override
-    Iterable<Object?> serialize(Serializers serializers, ErrorMessage object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
-        if (object.message != null) {
-            result
-                ..add(r'message')
-                ..add(serializers.serialize(object.message,
-                    specifiedType: const FullType(String)));
-        }
-        return result;
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    ErrorMessage object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    if (object.message != null) {
+      yield r'message';
+      yield serializers.serialize(
+        object.message,
+        specifiedType: const FullType(String),
+      );
     }
+  }
 
-    @override
-    ErrorMessage deserialize(Serializers serializers, Iterable<Object?> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = ErrorMessageBuilder();
+  @override
+  Object serialize(
+    Serializers serializers,
+    ErrorMessage object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
 
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final Object? value = iterator.current;
-            
-            switch (key) {
-                case r'message':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.message = valueDes;
-                    break;
-            }
-        }
-        return result.build();
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required ErrorMessageBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'message':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.message = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
     }
+  }
+
+  @override
+  ErrorMessage deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ErrorMessageBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

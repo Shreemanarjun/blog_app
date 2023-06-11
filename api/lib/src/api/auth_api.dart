@@ -32,7 +32,7 @@ class AuthApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MyToken] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<MyToken>> loginPost({
     required UserLoginRequest userLoginRequest,
     CancelToken? cancelToken,
@@ -63,14 +63,14 @@ class AuthApi {
       _bodyData =
           _serializers.serialize(userLoginRequest, specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -92,12 +92,12 @@ class AuthApi {
         specifiedType: _responseType,
       ) as MyToken;
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -126,7 +126,7 @@ class AuthApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SuccessMessage] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<SuccessMessage>> signupPost({
     required UserSignUpRequest userSignUpRequest,
     CancelToken? cancelToken,
@@ -157,14 +157,14 @@ class AuthApi {
       _bodyData =
           _serializers.serialize(userSignUpRequest, specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 
@@ -186,12 +186,12 @@ class AuthApi {
         specifiedType: _responseType,
       ) as SuccessMessage;
     } catch (error, stackTrace) {
-      throw DioError(
-        stackTrace: stackTrace,
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
+        stackTrace: stackTrace,
       );
     }
 

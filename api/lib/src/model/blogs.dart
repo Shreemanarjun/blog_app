@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+// ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/model/blogs_blogs_inner.dart';
 import 'package:built_value/built_value.dart';
@@ -13,61 +14,97 @@ part 'blogs.g.dart';
 ///
 /// Properties:
 /// * [blogs] 
+@BuiltValue()
 abstract class Blogs implements Built<Blogs, BlogsBuilder> {
-    @BuiltValueField(wireName: r'blogs')
-    BuiltList<BlogsBlogsInner>? get blogs;
+  @BuiltValueField(wireName: r'blogs')
+  BuiltList<BlogsBlogsInner>? get blogs;
 
-    Blogs._();
+  Blogs._();
 
-    @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(BlogsBuilder b) => b;
+  factory Blogs([void updates(BlogsBuilder b)]) = _$Blogs;
 
-    factory Blogs([void updates(BlogsBuilder b)]) = _$Blogs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BlogsBuilder b) => b;
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<Blogs> get serializer => _$BlogsSerializer();
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Blogs> get serializer => _$BlogsSerializer();
 }
 
-class _$BlogsSerializer implements StructuredSerializer<Blogs> {
-    @override
-    final Iterable<Type> types = const [Blogs, _$Blogs];
+class _$BlogsSerializer implements PrimitiveSerializer<Blogs> {
+  @override
+  final Iterable<Type> types = const [Blogs, _$Blogs];
 
-    @override
-    final String wireName = r'Blogs';
+  @override
+  final String wireName = r'Blogs';
 
-    @override
-    Iterable<Object?> serialize(Serializers serializers, Blogs object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
-        if (object.blogs != null) {
-            result
-                ..add(r'blogs')
-                ..add(serializers.serialize(object.blogs,
-                    specifiedType: const FullType(BuiltList, [FullType(BlogsBlogsInner)])));
-        }
-        return result;
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    Blogs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    if (object.blogs != null) {
+      yield r'blogs';
+      yield serializers.serialize(
+        object.blogs,
+        specifiedType: const FullType(BuiltList, [FullType(BlogsBlogsInner)]),
+      );
     }
+  }
 
-    @override
-    Blogs deserialize(Serializers serializers, Iterable<Object?> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = BlogsBuilder();
+  @override
+  Object serialize(
+    Serializers serializers,
+    Blogs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
 
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final Object? value = iterator.current;
-            
-            switch (key) {
-                case r'blogs':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(BuiltList, [FullType(BlogsBlogsInner)])) as BuiltList<BlogsBlogsInner>;
-                    result.blogs.replace(valueDes);
-                    break;
-            }
-        }
-        return result.build();
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required BlogsBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'blogs':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(BlogsBlogsInner)]),
+          ) as BuiltList<BlogsBlogsInner>;
+          result.blogs.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
     }
+  }
+
+  @override
+  Blogs deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BlogsBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 
