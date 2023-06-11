@@ -4,14 +4,14 @@ import 'package:velocity_x/velocity_x.dart';
 
 class HomeSuccess extends StatelessWidget {
   const HomeSuccess({
-    required this.onBlogAdd,
+    required this.onBlogEdit,
     required this.onBlogDelete,
     required this.blogs,
     super.key,
   });
 
   final List<BlogsBlogsInner> blogs;
-  final void Function(BlogsBlogsInner) onBlogAdd;
+  final void Function(BlogsBlogsInner) onBlogEdit;
   final void Function(BlogsBlogsInner) onBlogDelete;
 
   @override
@@ -33,7 +33,7 @@ class HomeSuccess extends StatelessWidget {
           trailing: <Widget>[
             IconButton(
               onPressed: () {
-                onBlogAdd(currentblog);
+                onBlogEdit(currentblog);
               },
               icon: const Icon(
                 Icons.edit,

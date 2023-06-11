@@ -7,6 +7,7 @@ import 'package:blog_app/features/home/view/ui_page/home_success.dart';
 import 'package:blog_app/features/home/view/widget/logout_btn.dart';
 import 'package:blog_app/features/home/view/widget/top_indicator.dart';
 import 'package:blog_app/features/login/view/widgets/title_header.dart';
+import 'package:blog_app/features/update_a_blog/view/update_a_blog_view.dart';
 import 'package:blog_app/shared/riverpod_extension/asyncvalue_easy_when.dart';
 import 'package:blog_app/shared/widget/app_locale_popup.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,49 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Future<void> editBlog(BlogsBlogsInner blogsInner) async {}
+  Future<void> editBlog(BlogsBlogsInner blogsInner) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.75,
+        snap: true,
+        expand: false,
+        builder: (context, scrollController) {
+          return UpdateABlogView(
+            blog: blogsInner,
+          );
+        },
+      ),
+      constraints: BoxConstraints(
+        maxWidth: 600,
+        maxHeight: context.safePercentHeight * 150,
+      ),
+      routeSettings: const RouteSettings(name: 'add a blog route'),
+      useSafeArea: true,
+      isScrollControlled: true,
+    );
+  }
+
+  Future<void> addBlog() async {
+    await showModalBottomSheet<void>(
+      context: context,
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.75,
+        snap: true,
+        expand: false,
+        builder: (context, scrollController) {
+          return const AddABlogView();
+        },
+      ),
+      constraints: BoxConstraints(
+        maxWidth: 600,
+        maxHeight: context.safePercentHeight * 150,
+      ),
+      routeSettings: const RouteSettings(name: 'add a blog route'),
+      useSafeArea: true,
+      isScrollControlled: true,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,26 +96,7 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: Consumer(
         builder: (context, ref, child) {
           return FloatingActionButton(
-            onPressed: () {
-              showModalBottomSheet<void>(
-                context: context,
-                builder: (context) => DraggableScrollableSheet(
-                  initialChildSize: 0.75,
-                  snap: true,
-                  expand: false,
-                  builder: (context, scrollController) {
-                    return const AddABlogView();
-                  },
-                ),
-                constraints: BoxConstraints(
-                  maxWidth: 600,
-                  maxHeight: context.safePercentHeight * 150,
-                ),
-                routeSettings: const RouteSettings(name: 'add a blog route'),
-                useSafeArea: true,
-                isScrollControlled: true,
-              );
-            },
+            onPressed: addBlog,
             child: const Icon(Icons.add),
           );
         },
@@ -96,7 +120,7 @@ class _HomeViewState extends State<HomeView> {
                           onRefresh: () => ref.refresh(blogListPod.future),
                           child: HomeSuccess(
                             blogs: blogs,
-                            onBlogAdd: (blogsBlogsInner) {},
+                            onBlogEdit: editBlog,
                             onBlogDelete: deleteBlog,
                           ),
                         ),

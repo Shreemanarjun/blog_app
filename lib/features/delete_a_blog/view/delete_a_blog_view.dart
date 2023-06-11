@@ -44,19 +44,19 @@ class _DeleteABlogState extends ConsumerState<DeleteABlogView> {
                     ),
                   DeletingBlogState _ => const DeletingBlogView(),
                   DeletedBlogState _ => 'Blog deleted successfully'
-                        .text
-                        .xl
-                        .isIntrinsic
-                        .green500
-                        .bold
-                        .makeCentered()
-                        .pOnly(top: 32)
-                        .pSymmetric(
-                          h: 32,
-                        )
-                        .scrollVertical()
-                        .centered(),
-                  DeleteBlogError s => <Widget>[
+                      .text
+                      .xl
+                      .isIntrinsic
+                      .green500
+                      .bold
+                      .makeCentered()
+                      .pOnly(top: 32)
+                      .pSymmetric(
+                        h: 32,
+                      )
+                      .scrollVertical()
+                      .centered(),
+                  final DeleteBlogError s => <Widget>[
                       s.error.text.bold
                           .makeCentered()
                           .pOnly(top: 32)

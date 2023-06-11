@@ -17,27 +17,23 @@ extension AsyncDisplay<T> on AsyncValue<T> {
   }) =>
       when(
         data: data,
-        error: (error, stackTrace) {
-          return errorWidget != null
-              ? errorWidget(
-                  error,
-                  stackTrace,
-                )
-              : DefaultErrorWidget(
-                  isLinear: isLinear,
-                  error: error,
-                  stackTrace: stackTrace,
-                  onRetry: onRetry,
-                  includedefaultDioErrorMessage: includedefaultDioErrorMessage,
-                );
-        },
-        loading: () {
-          return loadingWidget != null
-              ? loadingWidget()
-              : DefaultLoadingWidget(
-                  isLinear: isLinear,
-                );
-        },
+        error: (error, stackTrace) => errorWidget != null
+            ? errorWidget(
+                error,
+                stackTrace,
+              )
+            : DefaultErrorWidget(
+                isLinear: isLinear,
+                error: error,
+                stackTrace: stackTrace,
+                onRetry: onRetry,
+                includedefaultDioErrorMessage: includedefaultDioErrorMessage,
+              ),
+        loading: () => loadingWidget != null
+            ? loadingWidget()
+            : DefaultLoadingWidget(
+                isLinear: isLinear,
+              ),
         skipError: skipError,
         skipLoadingOnRefresh: skipLoadingOnRefresh,
         skipLoadingOnReload: skipLoadingOnReload,
