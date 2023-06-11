@@ -50,20 +50,18 @@ class _LoginViewState extends ConsumerState<LoginView> {
       resizeToAvoidBottomInset: false,
       floatingActionButton: const ChangeLanguageFloatingBtn(),
       body: SafeArea(
-        child: Consumer(
-          builder: (context, ref, child) {
-            final isloggedin = ref.watch(isLoggedInPod);
-            return FormBuilder(
-              key: _formKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              enabled: ref.watch(enableLoginFormPod),
-              initialValue: kDebugMode
-                  ? {
-                      'username': 'Arjun',
-                      'password': 'password',
-                    }
-                  : {},
-              child: isloggedin
+        child: FormBuilder(
+          key: _formKey,
+          initialValue: kDebugMode
+              ? {
+                  'username': 'Arjun',
+                  'password': 'password',
+                }
+              : {},
+          child: Consumer(
+            builder: (context, ref, child) {
+              final isloggedin = ref.watch(isLoggedInPod);
+              return isloggedin
                   ? const LoggedInView()
                   : VxResponsive(
                       large: LoginWebView(
@@ -78,9 +76,9 @@ class _LoginViewState extends ConsumerState<LoginView> {
                       fallback: LoginMobileView(
                         onLoginPressed: onLogin,
                       ),
-                    ),
-            );
-          },
+                    );
+            },
+          ),
         ),
       ),
     );
