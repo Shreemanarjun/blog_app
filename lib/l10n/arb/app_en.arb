@@ -15,6 +15,7 @@
   "passwordlbl": "Password",
   "titlehint": "Enter Title",
   "titlelbl": "Title",
+  "updateblogtitle": "Update A Blog",
   "usernamehint": "Enter Username",
   "usernamelbl": "Username"
 }
