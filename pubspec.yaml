@@ -12,7 +12,7 @@ dependencies:
   flex_color_scheme: ^7.1.2
   flutter:
     sdk: flutter
-  flutter_form_builder: ^8.0.0
+  flutter_form_builder: ^9.0.0
   flutter_localizations:
     sdk: flutter
   flutter_riverpod: ^2.3.6
@@ -25,14 +25,14 @@ dependencies:
   hive_flutter: ^1.1.0
   hydrated_state_notifier: ^1.0.0
   hydrated_state_notifier_hive: ^1.0.0
-  intl: ^0.17.0
+  intl: ^0.18.0
   lottie: ^2.4.0
   openapi:
     path: api
   path_provider: ^2.0.15
   platform_info: ^4.0.0
   talker: ^3.0.0+1
-  talker_dio_logger: ^2.0.0
+  talker_dio_logger: ^2.0.2
   velocity_x: ^4.1.0
 
 
