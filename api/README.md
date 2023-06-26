@@ -48,7 +48,7 @@ import 'package:openapi/openapi.dart';
 
 
 final api = Openapi().getAuthApi();
-final UserLoginRequest userLoginRequest = ; // UserLoginRequest | User with username and password
+final UserLoginRequest userLoginRequest = {"username":"Arjun","password":"password"}; // UserLoginRequest | User with username and password
 
 try {
     final response = await api.loginPost(userLoginRequest);
@@ -82,19 +82,19 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Blog](doc/Blog.md)
  - [BlogRequest](doc/BlogRequest.md)
  - [BlogUpdateRequest](doc/BlogUpdateRequest.md)
  - [Blogs](doc/Blogs.md)
- - [BlogsBlogsInner](doc/BlogsBlogsInner.md)
  - [ErrorMessage](doc/ErrorMessage.md)
  - [MyToken](doc/MyToken.md)
  - [SuccessMessage](doc/SuccessMessage.md)
+ - [Token](doc/Token.md)
  - [Tokens](doc/Tokens.md)
- - [TokensTokensInner](doc/TokensTokensInner.md)
+ - [User](doc/User.md)
  - [UserLoginRequest](doc/UserLoginRequest.md)
  - [UserSignUpRequest](doc/UserSignUpRequest.md)
  - [Users](doc/Users.md)
- - [UsersUsersInner](doc/UsersUsersInner.md)
 
 
 ## Documentation For Authorization

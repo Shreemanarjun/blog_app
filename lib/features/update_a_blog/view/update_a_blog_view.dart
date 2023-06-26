@@ -16,7 +16,7 @@ class UpdateABlogView extends ConsumerStatefulWidget {
     required this.blog,
     super.key,
   });
-  final BlogsBlogsInner blog;
+  final Blog blog;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>

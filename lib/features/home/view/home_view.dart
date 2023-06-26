@@ -27,18 +27,18 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  Future<void> deleteBlog(BlogsBlogsInner blogsInner) async {
+  Future<void> deleteBlog(Blog blog) async {
     await showDialog<void>(
       context: context,
       builder: (context) {
         return DeleteABlogView(
-          blogId: blogsInner.id!,
+          blogId: blog.id!,
         );
       },
     );
   }
 
-  Future<void> editBlog(BlogsBlogsInner blogsInner) async {
+  Future<void> editBlog(Blog blog) async {
     await showModalBottomSheet<void>(
       context: context,
       builder: (context) => DraggableScrollableSheet(
@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> {
         expand: false,
         builder: (context, scrollController) {
           return UpdateABlogView(
-            blog: blogsInner,
+            blog: blog,
           );
         },
       ),

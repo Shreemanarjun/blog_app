@@ -8,7 +8,7 @@ part of 'users.dart';
 
 class _$Users extends Users {
   @override
-  final BuiltList<UsersUsersInner>? users;
+  final BuiltList<User>? users;
 
   factory _$Users([void Function(UsersBuilder)? updates]) =>
       (new UsersBuilder()..update(updates))._build();
@@ -46,10 +46,9 @@ class _$Users extends Users {
 class UsersBuilder implements Builder<Users, UsersBuilder> {
   _$Users? _$v;
 
-  ListBuilder<UsersUsersInner>? _users;
-  ListBuilder<UsersUsersInner> get users =>
-      _$this._users ??= new ListBuilder<UsersUsersInner>();
-  set users(ListBuilder<UsersUsersInner>? users) => _$this._users = users;
+  ListBuilder<User>? _users;
+  ListBuilder<User> get users => _$this._users ??= new ListBuilder<User>();
+  set users(ListBuilder<User>? users) => _$this._users = users;
 
   UsersBuilder() {
     Users._defaults(this);

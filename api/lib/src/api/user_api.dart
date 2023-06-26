@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:openapi/src/model/error_message.dart';
 import 'package:openapi/src/model/my_token.dart';
 
 class UserApi {
@@ -29,7 +30,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioException] if API call or serialization fails
+  /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> userHelloGet({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -82,7 +83,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioException] if API call or serialization fails
+  /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> userOkGet({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -135,7 +136,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MyToken] as data
-  /// Throws [DioException] if API call or serialization fails
+  /// Throws [DioError] if API call or serialization fails
   Future<Response<MyToken>> userRefreshAccessTokenPost({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -183,10 +184,10 @@ class UserApi {
       ) as MyToken;
 
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

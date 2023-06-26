@@ -4,7 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/users_users_inner.dart';
+import 'package:openapi/src/model/user.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,7 +17,7 @@ part 'users.g.dart';
 @BuiltValue()
 abstract class Users implements Built<Users, UsersBuilder> {
   @BuiltValueField(wireName: r'users')
-  BuiltList<UsersUsersInner>? get users;
+  BuiltList<User>? get users;
 
   Users._();
 
@@ -46,7 +46,7 @@ class _$UsersSerializer implements PrimitiveSerializer<Users> {
       yield r'users';
       yield serializers.serialize(
         object.users,
-        specifiedType: const FullType(BuiltList, [FullType(UsersUsersInner)]),
+        specifiedType: const FullType(BuiltList, [FullType(User)]),
       );
     }
   }
@@ -75,8 +75,8 @@ class _$UsersSerializer implements PrimitiveSerializer<Users> {
         case r'users':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(UsersUsersInner)]),
-          ) as BuiltList<UsersUsersInner>;
+            specifiedType: const FullType(BuiltList, [FullType(User)]),
+          ) as BuiltList<User>;
           result.users.replace(valueDes);
           break;
         default:

@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:openapi/src/model/token.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/tokens_tokens_inner.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,7 +17,7 @@ part 'tokens.g.dart';
 @BuiltValue()
 abstract class Tokens implements Built<Tokens, TokensBuilder> {
   @BuiltValueField(wireName: r'tokens')
-  BuiltList<TokensTokensInner>? get tokens;
+  BuiltList<Token>? get tokens;
 
   Tokens._();
 
@@ -46,7 +46,7 @@ class _$TokensSerializer implements PrimitiveSerializer<Tokens> {
       yield r'tokens';
       yield serializers.serialize(
         object.tokens,
-        specifiedType: const FullType(BuiltList, [FullType(TokensTokensInner)]),
+        specifiedType: const FullType(BuiltList, [FullType(Token)]),
       );
     }
   }
@@ -75,8 +75,8 @@ class _$TokensSerializer implements PrimitiveSerializer<Tokens> {
         case r'tokens':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TokensTokensInner)]),
-          ) as BuiltList<TokensTokensInner>;
+            specifiedType: const FullType(BuiltList, [FullType(Token)]),
+          ) as BuiltList<Token>;
           result.tokens.replace(valueDes);
           break;
         default:

@@ -25,7 +25,7 @@ Performs the given operation on the given values and returns the result
 import 'package:openapi/api.dart';
 
 final api = Openapi().getAuthApi();
-final UserLoginRequest userLoginRequest = ; // UserLoginRequest | User with username and password
+final UserLoginRequest userLoginRequest = {"username":"Arjun","password":"password"}; // UserLoginRequest | User with username and password
 
 try {
     final response = api.loginPost(userLoginRequest);
@@ -68,7 +68,7 @@ Performs the given operation on the given values and returns the result
 import 'package:openapi/api.dart';
 
 final api = Openapi().getAuthApi();
-final UserSignUpRequest userSignUpRequest = ; // UserSignUpRequest | User with username and password
+final UserSignUpRequest userSignUpRequest = {"username":"Arjun","password":"password"}; // UserSignUpRequest | User with username and password
 
 try {
     final response = api.signupPost(userSignUpRequest);

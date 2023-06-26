@@ -8,7 +8,7 @@ part of 'tokens.dart';
 
 class _$Tokens extends Tokens {
   @override
-  final BuiltList<TokensTokensInner>? tokens;
+  final BuiltList<Token>? tokens;
 
   factory _$Tokens([void Function(TokensBuilder)? updates]) =>
       (new TokensBuilder()..update(updates))._build();
@@ -46,10 +46,9 @@ class _$Tokens extends Tokens {
 class TokensBuilder implements Builder<Tokens, TokensBuilder> {
   _$Tokens? _$v;
 
-  ListBuilder<TokensTokensInner>? _tokens;
-  ListBuilder<TokensTokensInner> get tokens =>
-      _$this._tokens ??= new ListBuilder<TokensTokensInner>();
-  set tokens(ListBuilder<TokensTokensInner>? tokens) => _$this._tokens = tokens;
+  ListBuilder<Token>? _tokens;
+  ListBuilder<Token> get tokens => _$this._tokens ??= new ListBuilder<Token>();
+  set tokens(ListBuilder<Token>? tokens) => _$this._tokens = tokens;
 
   TokensBuilder() {
     Tokens._defaults(this);

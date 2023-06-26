@@ -10,8 +10,10 @@ import 'package:dio/dio.dart';
 import 'package:openapi/src/model/blog_request.dart';
 import 'package:openapi/src/model/blog_update_request.dart';
 import 'package:openapi/src/model/blogs.dart';
+import 'package:openapi/src/model/error_message.dart';
 
 class BlogsApi {
+
   final Dio _dio;
 
   final Serializers _serializers;
@@ -19,7 +21,7 @@ class BlogsApi {
   const BlogsApi(this._dio, this._serializers);
 
   /// blogGet
-  ///
+  /// 
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -30,8 +32,8 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<Blogs>> blogGet({
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<Blogs>> blogGet({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -76,11 +78,12 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
+
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -99,7 +102,7 @@ class BlogsApi {
   }
 
   /// blogIdDelete
-  ///
+  /// 
   ///
   /// Parameters:
   /// * [id] - id of the blog
@@ -111,8 +114,8 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<Blogs>> blogIdDelete({
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<Blogs>> blogIdDelete({ 
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -158,11 +161,12 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
+
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -181,7 +185,7 @@ class BlogsApi {
   }
 
   /// blogPatch
-  ///
+  /// 
   ///
   /// Parameters:
   /// * [blogUpdateRequest] - Blog update request
@@ -193,8 +197,8 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<Blogs>> blogPatch({
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<Blogs>> blogPatch({ 
     required BlogUpdateRequest blogUpdateRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -229,15 +233,15 @@ class BlogsApi {
 
     try {
       const _type = FullType(BlogUpdateRequest);
-      _bodyData =
-          _serializers.serialize(blogUpdateRequest, specifiedType: _type);
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _options.compose(
+      _bodyData = _serializers.serialize(blogUpdateRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioError(
+         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -260,11 +264,12 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
+
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -283,7 +288,7 @@ class BlogsApi {
   }
 
   /// blogPost
-  ///
+  /// 
   ///
   /// Parameters:
   /// * [blogRequest] - Blog Create Request
@@ -295,8 +300,8 @@ class BlogsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Blogs] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<Blogs>> blogPost({
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<Blogs>> blogPost({ 
     required BlogRequest blogRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -332,13 +337,14 @@ class BlogsApi {
     try {
       const _type = FullType(BlogRequest);
       _bodyData = _serializers.serialize(blogRequest, specifiedType: _type);
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _options.compose(
+
+    } catch(error, stackTrace) {
+      throw DioError(
+         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -361,11 +367,12 @@ class BlogsApi {
         _response.data!,
         specifiedType: _responseType,
       ) as Blogs;
+
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -382,4 +389,5 @@ class BlogsApi {
       extra: _response.extra,
     );
   }
+
 }

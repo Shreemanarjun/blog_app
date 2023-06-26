@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:openapi/src/model/blog.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/blogs_blogs_inner.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,7 +17,7 @@ part 'blogs.g.dart';
 @BuiltValue()
 abstract class Blogs implements Built<Blogs, BlogsBuilder> {
   @BuiltValueField(wireName: r'blogs')
-  BuiltList<BlogsBlogsInner>? get blogs;
+  BuiltList<Blog>? get blogs;
 
   Blogs._();
 
@@ -46,7 +46,7 @@ class _$BlogsSerializer implements PrimitiveSerializer<Blogs> {
       yield r'blogs';
       yield serializers.serialize(
         object.blogs,
-        specifiedType: const FullType(BuiltList, [FullType(BlogsBlogsInner)]),
+        specifiedType: const FullType(BuiltList, [FullType(Blog)]),
       );
     }
   }
@@ -75,8 +75,8 @@ class _$BlogsSerializer implements PrimitiveSerializer<Blogs> {
         case r'blogs':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(BlogsBlogsInner)]),
-          ) as BuiltList<BlogsBlogsInner>;
+            specifiedType: const FullType(BuiltList, [FullType(Blog)]),
+          ) as BuiltList<Blog>;
           result.blogs.replace(valueDes);
           break;
         default:

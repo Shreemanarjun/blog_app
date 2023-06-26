@@ -10,9 +10,9 @@ class HomeSuccess extends StatelessWidget {
     super.key,
   });
 
-  final List<BlogsBlogsInner> blogs;
-  final void Function(BlogsBlogsInner) onBlogEdit;
-  final void Function(BlogsBlogsInner) onBlogDelete;
+  final List<Blog> blogs;
+  final void Function(Blog) onBlogEdit;
+  final void Function(Blog) onBlogDelete;
 
   @override
   Widget build(BuildContext context) {

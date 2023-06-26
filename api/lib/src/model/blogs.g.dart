@@ -8,7 +8,7 @@ part of 'blogs.dart';
 
 class _$Blogs extends Blogs {
   @override
-  final BuiltList<BlogsBlogsInner>? blogs;
+  final BuiltList<Blog>? blogs;
 
   factory _$Blogs([void Function(BlogsBuilder)? updates]) =>
       (new BlogsBuilder()..update(updates))._build();
@@ -46,10 +46,9 @@ class _$Blogs extends Blogs {
 class BlogsBuilder implements Builder<Blogs, BlogsBuilder> {
   _$Blogs? _$v;
 
-  ListBuilder<BlogsBlogsInner>? _blogs;
-  ListBuilder<BlogsBlogsInner> get blogs =>
-      _$this._blogs ??= new ListBuilder<BlogsBlogsInner>();
-  set blogs(ListBuilder<BlogsBlogsInner>? blogs) => _$this._blogs = blogs;
+  ListBuilder<Blog>? _blogs;
+  ListBuilder<Blog> get blogs => _$this._blogs ??= new ListBuilder<Blog>();
+  set blogs(ListBuilder<Blog>? blogs) => _$this._blogs = blogs;
 
   BlogsBuilder() {
     Blogs._defaults(this);

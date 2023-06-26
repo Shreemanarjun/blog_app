@@ -115,7 +115,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKeyPrefix = 'Bearer';
 
 final api = Openapi().getBlogsApi();
-final BlogUpdateRequest blogUpdateRequest = ; // BlogUpdateRequest | Blog update request
+final BlogUpdateRequest blogUpdateRequest = {"blogId":1,"title":"Update1","description":"Description"}; // BlogUpdateRequest | Blog update request
 
 try {
     final response = api.blogPatch(blogUpdateRequest);
@@ -160,7 +160,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('authJWT').apiKeyPrefix = 'Bearer';
 
 final api = Openapi().getBlogsApi();
-final BlogRequest blogRequest = ; // BlogRequest | Blog Create Request
+final BlogRequest blogRequest = {"title":"I am a blog","description":"Description"}; // BlogRequest | Blog Create Request
 
 try {
     final response = api.blogPost(blogRequest);
