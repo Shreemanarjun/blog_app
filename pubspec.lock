@@ -69,10 +69,10 @@ packages:
     dependency: "direct main"
     description:
       name: auto_route
-      sha256: "02120972925a567c37921fa28ac7e90680c7095dd0e70711353737ec2727cdc6"
+      sha256: "38f7b022b5b689800a1745d7bde0bf1e1f0ded864c26c907305112602108a2df"
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.0"
+    version: "7.5.0"
   auto_route_generator:
     dependency: "direct dev"
     description:
@@ -333,10 +333,10 @@ packages:
     dependency: "direct main"
     description:
       name: dio
-      sha256: dfda195cbf351d538054297bbd509d8046d336194ea218655f2c326c65711d1e
+      sha256: a9d76e72985d7087eb7c5e7903224ae52b337131518d127c554b9405936752b8
       url: "https://pub.dev"
     source: hosted
-    version: "5.2.1"
+    version: "5.2.1+1"
   fake_async:
     dependency: transitive
     description:
@@ -1158,10 +1158,10 @@ packages:
     dependency: "direct main"
     description:
       name: talker_dio_logger
-      sha256: a71583843b4787d7e84ddca35ab75c51d0effc95594c73ea9992ddb230aa17a0
+      sha256: "641a188e926f4b9fa24b7094e60f2bf31094f15a8a60e5d0cc81e6decebf717b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "2.1.2"
   talker_logger:
     dependency: transitive
     description:
